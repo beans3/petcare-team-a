@@ -1,6 +1,7 @@
 package com.petcare.web.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.petcare.web.domain.Codename;
 import com.petcare.web.domain.Hospital;
@@ -27,7 +28,7 @@ public interface HospitalService {
 	//병원개인정보
 	public Hospital getList(String hospitalId);
 	//특성 가져오기
-	public List<Character> getCharacter(String hospitalId);
+	public List<Map<String, String>> getCharacter(String hospitalId);
 	//병원정보수정하기
 	public void modify(Hospital hospital);
 }

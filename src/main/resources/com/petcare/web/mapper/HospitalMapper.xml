@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.petcare.web.mapper.HospitalMapper">
+
+	<resultMap type="map" id="selectCodeList">
+		<result column="c_code" property="cCode"/>
+		<result column="c_name" property="cName"/>
+	</resultMap>
   
   	<select id="listCode" parameterType="String" resultType="java.util.HashMap">
 		SELECT a.c_code 
@@ -83,7 +88,7 @@
 		AND hospital_pw = #{hospitalPw}
 	</select>
 	
-	<select id="getCharacter" resultType="map">
+	<select id="getCharacter" resultMap="selectCodeList">
 		SELECT hc.c_code AS c_code, c.c_name AS c_name 
 		FROM H_CHARACTER hc, CODENAME c
 		WHERE hc.c_code = c.c_code

@@ -1,6 +1,7 @@
 package com.petcare.web.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.petcare.web.domain.Codename;
 import com.petcare.web.domain.Hospital;
@@ -15,7 +16,7 @@ public interface HospitalMapper {
 	public String selectID(String id); //아이디 중복체크(Juery Validator)
 	public String selectEmail(String email); //이메일 중복체크(Juery Validator)
 	public Hospital loginPro2(Hospital hospitaluser);	//병원회원 로그인
-	public List<Character> getCharacter(String hospitalId); 	//특성 가져오기
+	public List<Map<String, String>> getCharacter(String hospitalId); 	//특성 가져오기
 	public Hospital getList(String hospitalId);		//병원정보 가져오기
 	public void deleteCode(String hospitalId);			//코드삭제!!
 	public void update(Hospital hospital);	//병원정보수정!!

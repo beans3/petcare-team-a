@@ -1,6 +1,7 @@
 package com.petcare.web.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -92,8 +93,8 @@ public class HospitalServiceImpl implements HospitalService {
 	
 	//특성 가져오기
 	@Override
-	public List<Character> getCharacter(String hospitalId) {
-		List<Character> list = hospitalMapper.getCharacter(hospitalId);
+	public List<Map<String, String>> getCharacter(String hospitalId) {
+		List<Map<String, String>> list = hospitalMapper.getCharacter(hospitalId);
 		return list;
 	}
 
