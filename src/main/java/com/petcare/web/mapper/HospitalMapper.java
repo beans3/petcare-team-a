@@ -9,7 +9,8 @@ import com.petcare.web.domain.Hospital;
 public interface HospitalMapper {
 	public List<String> listCodename(String hospitalId); //코드 네임 불러오기
 	public List<Hospital> listHospital(); //병원 전체 리스트
-	public List<Hospital> searchHospital(String hospitalName); //병원 검색 리스트
+	public List<Hospital> searchHospitalByName(String hospitalName); //병원 이름 검색
+	public List<Hospital> searchHospitalByAddress(String hospitalAddress); //병원 이름 검색
 	public Hospital viewHospital(String hospitalId); //병원 정보
 	public void register(Hospital hospital);	//병원 회원가입
 	public void codeInsert (Codename codename);	//특성 삽입

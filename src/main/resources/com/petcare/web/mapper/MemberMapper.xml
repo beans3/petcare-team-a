@@ -55,4 +55,34 @@
 			, user_email = #{userEmail}
 		WHERE user_id = #{userId}
 	</update>
+	
+	<select id="getAppointmentList" resultType="com.petcare.web.domain.AppointmentVo">
+		select a.appt_no, a.pet_no, a.user_id, a.hospital_id, a.appt_date, a.appt_time, a.appt_note, a.appt_status, p.pet_name, u.user_phone, h.hospital_name, h.hospital_id
+		from appointment a join pet p join user u join hospital h
+		where a.pet_no = p.pet_no and a.user_id = u.user_id and a.hospital_id = h.hospital_id and a.user_id = #{userId} 
+		order by a.appt_date, a.appt_time asc
+		limit #{cri.pageStart}, #{cri.amount}
+	</select>
+	
+	<delete id="deleteAppointment">
+		delete from appointment where appt_no = #{apptNo}
+	</delete>
+	
+	<update id="updateAppointment">
+		update appointment
+		set appt_status=#{apptStatus}
+		where appt_no = #{apptNo}
+	</update>
+	
+	<select id="readAppointment" resultType="com.petcare.web.domain.AppointmentVo">
+		select a.appt_no, a.pet_no, a.user_id, a.hospital_id, a.appt_date, a.appt_time, a.appt_note, a.appt_status, p.pet_name, u.user_phone, h.hospital_name, h.hospital_id
+		from appointment a join pet p join user u join hospital h
+		where a.pet_no = p.pet_no and a.user_id = u.user_id and a.hospital_id = h.hospital_id and appt_no = #{apptNo}
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+    	select count(*)
+		from appointment a join pet p join user u
+		where a.pet_no = p.pet_no and a.user_id = u.user_id and appt_no > 0
+    </select>
 </mapper>

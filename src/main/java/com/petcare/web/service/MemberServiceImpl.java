@@ -1,9 +1,13 @@
 package com.petcare.web.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.petcare.web.domain.AppointmentVo;
+import com.petcare.web.domain.Criteria;
 import com.petcare.web.domain.UserVO;
 import com.petcare.web.mapper.MemberMapper;
 
@@ -49,4 +53,30 @@ public class MemberServiceImpl implements MemberService {
 	public void update(UserVO user) {
 		memberMapper.update(user);
 	}
+
+	@Override
+	public List<AppointmentVo> getLists(Criteria cri, String userId) {
+		return memberMapper.getAppointmentList(cri, userId);
+	}
+
+	@Override
+	public AppointmentVo get(int apptNo) {
+		return memberMapper.readAppointment(apptNo);
+	}
+
+	@Override
+	public boolean remove(int apptNo) {
+		return memberMapper.deleteAppointment(apptNo) == 1;
+	}
+
+	@Override
+	public boolean modify(AppointmentVo appointment) {
+		return memberMapper.updateAppointment(appointment) == 1;
+	}
+
+	@Override
+	public int getTotal(Criteria cri) {
+		return memberMapper.getTotalCount(cri);
+	}
+	
 }

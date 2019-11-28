@@ -25,8 +25,8 @@ public class PetServiceImpl implements PetService{
 
 	//동물 리스트
 	@Override
-	public List<PetVO> getList(Criteria cri) {
-		return mapper.getListWithPaging(cri);
+	public List<PetVO> getList(Criteria cri, String userId) {
+		return mapper.getListWithPaging(cri, userId);
 	}
 
 	//동물 정보 조회

@@ -16,10 +16,9 @@
 	<select id="getList" resultType="com.petcare.web.domain.AppointmentVo">
 		select a.appt_no, a.pet_no, a.user_id, a.hospital_id, a.appt_date, a.appt_time, a.appt_note, a.appt_status, p.pet_name, u.user_phone
 		from appointment a join pet p join user u
-		where a.pet_no = p.pet_no and a.user_id = u.user_id
-		<include refid="searchCondition"></include>
-		order by appt_no asc
-		limit #{pageStart}, #{amount}
+		where a.pet_no = p.pet_no and a.user_id = u.user_id and a.hospital_Id = #{hospitalId}
+		order by a.appt_date, a.appt_time asc
+		limit #{cri.pageStart}, #{cri.amount}
 	</select>
 	
 	<delete id="delete">
@@ -42,6 +41,5 @@
     	select count(*)
 		from appointment a join pet p join user u
 		where a.pet_no = p.pet_no and a.user_id = u.user_id and appt_no > 0
-    	<include refid="searchCondition"></include>
     </select>
 </mapper>

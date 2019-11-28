@@ -21,8 +21,18 @@
             <div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="/hospital/search" tabindex="0" data-submenu="" aria-expanded="false">
+                        <a href="/hospital/list" tabindex="0" data-submenu="" aria-expanded="false">
                             	검색</a></li>
+                	 <c:if test="${not empty sessionScope.user}">
+                	<li class="dropdown">
+                        <a href="/favorite/foruser" tabindex="0" data-submenu="" aria-expanded="false">
+                            	즐겨찾기</a></li>
+                      </c:if>  
+                	 <c:if test="${not empty sessionScope.hospital}">
+                	<li class="dropdown">
+                        <a href="/favorite/forhospital" tabindex="0" data-submenu="" aria-expanded="false">
+                            	즐겨찾기</a></li>
+                      </c:if>      	
                      <li class="dropdown">
                         <a href="/faq/faqList" tabindex="0" data-submenu="" aria-expanded="false">
                             	FAQ</a></li>
@@ -40,6 +50,7 @@
                             	마이페이지<span class="caret"></span></a>
 	                        <ul class="dropdown-menu">
 	                            <li><a href="/member/modifyForm">개인정보 수정</a></li>
+	                            <li><a href="/userAppointment/list">예약내역 목록</a></li>
 	                        </ul>
                     	</li>
               		</c:if>
@@ -49,6 +60,7 @@
                             	마이페이지<span class="caret"></span></a>
 	                        <ul class="dropdown-menu">
 	                            <li><a href="/hospital/modifyForm">개인정보 수정</a></li>
+	                            <li><a href="/appointment/list">예약내역 목록</a></li>
 	                        </ul>
                     	</li>
               		</c:if>                   

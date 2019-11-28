@@ -30,10 +30,17 @@ public class HospitalServiceImpl implements HospitalService {
 		return result;
 	};
 	
-	//병원 검색
+	//병원 이름 검색
 	@Override
-	public List<Hospital> search(String hospitalName){
-		List<Hospital> result = hospitalMapper.searchHospital(hospitalName);
+	public List<Hospital> searchName(String hospitalName){
+		List<Hospital> result = hospitalMapper.searchHospitalByName(hospitalName);
+		return result;
+	};
+	
+	//병원 주소 검색
+	@Override
+	public List<Hospital> searchAddress(String hospitalAddress){
+		List<Hospital> result = hospitalMapper.searchHospitalByAddress(hospitalAddress);
 		return result;
 	};
 	

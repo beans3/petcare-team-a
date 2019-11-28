@@ -38,16 +38,14 @@ public class FavoriteServiceImpl implements FavoriteService {
 	
 	//환자용 즐겨찾기
 	@Override
-	public List<String> selectForUser(String userId){
-		List<String> result = favoriteMapper.getForUser(userId);
-		return result;
+	public List<FavoriteVO> selectForUser(String userId){
+		return favoriteMapper.getForUser(userId);
 	};
 	
 	//병원용 즐겨찾기
 	@Override
-	public List<String> selectForHospital(String hospitalId){
-		List<String> result = favoriteMapper.getForHospital(hospitalId);
-		return result;
+	public List<FavoriteVO> selectForHospital(String hospitalId){
+		return favoriteMapper.getForHospital(hospitalId);
 	};
 
 }

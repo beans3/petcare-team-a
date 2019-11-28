@@ -16,8 +16,8 @@ public class AppointmentServiceImpl implements AppointmentService{
 	private AppointmentMapper mapper;
 
 	@Override
-	public List<AppointmentVo> getList(Criteria cri) {
-		return mapper.getList(cri);
+	public List<AppointmentVo> getList(Criteria cri, String hospitalId) {
+		return mapper.getList(cri, hospitalId);
 	}
 
 	@Override

@@ -32,10 +32,10 @@ public class AppointmentMapperTest {
 //		
 //	}
 	
-	@Test
-	public void readTest() {
-		AppointmentVo appointmentVo = mapper.read(1);
-	}
+//	@Test
+//	public void readTest() {
+//		AppointmentVo appointmentVo = mapper.read(1);
+//	}
 	
 //	@Test
 //	public void deleteTest() {

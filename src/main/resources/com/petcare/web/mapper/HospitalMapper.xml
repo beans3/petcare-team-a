@@ -29,10 +29,16 @@
 		FROM HOSPITAL 
 	</select>
 	
-	<select id="searchHospital" parameterType="String" resultType="java.util.HashMap">
+	<select id="searchHospitalByName" parameterType="String" resultType="java.util.HashMap">
 		SELECT *
 		FROM HOSPITAL
 		WHERE hospital_name like CONCAT('%', #{hospitalName}, '%')
+	</select>
+	
+	<select id="searchHospitalByAddress" parameterType="String" resultType="java.util.HashMap">
+		SELECT *
+		FROM HOSPITAL
+		WHERE hospital_address like CONCAT('%', #{hospitalAddress}, '%')
 	</select>
 	
 	<select id="viewHospital" parameterType="String" resultType="com.petcare.web.domain.Hospital">

@@ -8,25 +8,25 @@
 <title>병원 검색</title>
 </head>
 <body>
-<!-- HSJ 선택지 검색기능 -->
-<!-- HSJ 전체리스트 / 검색결과 on/off -->
+<!-- HSJ 주소, 선택지, species 검색기능 -->
 <div>
 	<div>
 	<h3>동물병원 목록</h3>
 	<form method="get" action="/hospital/search">
-		<select>
+		<select name="searchValue">
 		  <option value="name">병원 이름</option>
 		  <option value="address">병원 주소</option>
 		</select>
-		<input type="text" name="hospitalName" placeholder="검색어를 입력하세요"><br>
-		  <input type="checkbox" name="choice1" value="hospitalNightcare">야간진료
-		  <input type="checkbox" name="choice2" value="hospitalEmergency">응급실
-		  <input type="checkbox" name="choice3" value="hospitalSpecial">특수동물
-		  <input type="checkbox" name="choice4" value="hospitalHotel">애견호텔
+		<input type="text" name="searchWord" placeholder="검색어를 입력하세요"><br>
+		  <input type="checkbox" name="choice" value="1">야간진료
+		  <input type="checkbox" name="choice" value="2">특수동물
+		  <input type="checkbox" name="choice" value="3">응급실
+		  <input type="checkbox" name="choice" value="4">애견호텔
 		<input type="submit" value="검색">
 	</form>
 	</div>
 	<div>
+	<c:if test="${!empty list}">
 	<h3>전체 리스트</h3>
 		<c:forEach items="${list}" var="list">
 		<a href='<c:out value="get?hospitalId=${list.hospital_id}"/>'>이름: ${list.hospital_name}</a><br>
@@ -45,8 +45,10 @@
 				</c:if>
 			</c:forEach><br><br><br>
 		</c:forEach>
+	</c:if>
 	</div>
 	<div>
+	<c:if test="${!empty search}">
 	<h3>검색 결과</h3>
 		<c:forEach items="${search}" var="list">
 		<a href='<c:out value="get?hospitalId=${list.hospital_id}"/>'>이름: ${list.hospital_name}</a><br>
@@ -65,6 +67,7 @@
 				</c:if>
 			</c:forEach><br><br><br>
 		</c:forEach>
+	</c:if>
 	</div>
 </div>
 

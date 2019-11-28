@@ -18,4 +18,5 @@ public class AppointmentVo {
 	private int apptStatus;//예약상태
 	private String petName; //펫이름
 	private String userPhone; //전화번호
+	private String hospitalName; //병원이름
 }

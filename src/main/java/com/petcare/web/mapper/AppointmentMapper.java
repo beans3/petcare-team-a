@@ -9,7 +9,7 @@ import com.petcare.web.domain.Criteria;
 
 public interface AppointmentMapper {
 
-	public List<AppointmentVo> getList(Criteria cri);
+	public List<AppointmentVo> getList(@Param("cri") Criteria cri, @Param("hospitalId") String hospitalId);
 	
 	public AppointmentVo read(int apptNo);
 	

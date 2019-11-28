@@ -28,14 +28,14 @@
     	
     </delete>
     
-    <select id="getForUser" parameterType="String" resultType="String">
-    	SELECT hospital_id 
+    <select id="getForUser" parameterType="String" resultType="com.petcare.web.domain.FavoriteVO">
+    	SELECT *
     	FROM FAVORITE
     	WHERE user_id = #{userId}
     </select>
     
-    <select id="getForHospital" parameterType="String" resultType="String">
-    	SELECT user_id
+    <select id="getForHospital" parameterType="String" resultType="com.petcare.web.domain.FavoriteVO">
+    	SELECT *
     	FROM FAVORITE 
     	WHERE hospital_id = #{hospitalId}
     </select>

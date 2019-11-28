@@ -42,9 +42,8 @@
 			<tr>
 				<th>예약날짜</th>
 				<th>예약시간</th>
+				<th>병원이름</th>
 				<th>동물이름</th>
-				<th>예약아이디</th>
-				<th>전화번호</th>
 				<th>예약상태</th>
 			</tr>
 			
@@ -52,9 +51,8 @@
 				<tr>
 					<td><fmt:formatDate value="${apptList.apptDate}" pattern="yyyy/MM/dd"/></td>
 					<td><fmt:formatDate value="${apptList.apptTime}" pattern="HH:mm"/></td>
+					<td>${apptList.hospitalName}</td>
 					<td>${apptList.petName}</td>
-					<td>${apptList.userId}</td>
-					<td>${apptList.userPhone}</td>
 					<c:if test="${apptList.apptStatus == 0}">
 						<td><a class='move' href='<c:out value="${apptList.apptNo}"/>'>예약완료</a></td>
 					</c:if>
@@ -121,7 +119,7 @@ $(document).ready(function(){
 	$(".move").on("click", function(e){
 		e.preventDefault();
 		actionForm.append("<input type='hidden' name='apptNo' value='"+ $(this).attr("href")+"'>");
-		actionForm.attr("action", "/appointment/modify");
+		actionForm.attr("action", "/userAppointment/modify");
 		actionForm.submit();
 	});
 	

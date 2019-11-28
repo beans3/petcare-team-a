@@ -63,15 +63,9 @@
 			<form:errors path="petAge"/>
 		</div>
 	
-<<<<<<< HEAD
 	<div>
 		<input type="hidden" name="userId" value="${user.userId}">
 	</div>
-=======
-		<div>
-			<input type="hidden" name="userId" value="${user.userId}">
-		</div>
->>>>>>> 64e726cb80b0c581616cf6a3b645b56aa16e5492
 	
 		<button type="submit" class="btn btn-default">등록</button>
 		<button type="button" class="btn btn-default" onclick="self.location='/pet/list'">취소</button>

@@ -7,7 +7,7 @@ import com.petcare.web.domain.Criteria;
 
 public interface AppointmentService {
 
-	public List<AppointmentVo> getList(Criteria cri);
+	public List<AppointmentVo> getList(Criteria cri, String hospitalId);
 	
 	public AppointmentVo get(int apptNo);
 	

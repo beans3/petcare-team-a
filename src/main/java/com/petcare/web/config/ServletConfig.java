@@ -14,7 +14,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
-import com.petcare.web.interceptor.AuthInterceptor;
+import com.petcare.web.interceptor.UserAuthInterceptor;
+import com.petcare.web.interceptor.HospitalAuthInterceptor;
 import com.petcare.web.interceptor.HospitalLoginInterceptor;
 import com.petcare.web.interceptor.LoginIntercepter;
 import com.petcare.web.interceptor.LogoutInterceptor;
@@ -43,11 +44,15 @@ public class ServletConfig implements WebMvcConfigurer {
         registry.addInterceptor(new LoginIntercepter()).addPathPatterns("/loginPro");
         registry.addInterceptor(new HospitalLoginInterceptor()).addPathPatterns("/loginPro2");
         registry.addInterceptor(new LogoutInterceptor()).addPathPatterns("/logout");
-        registry.addInterceptor(new AuthInterceptor()).addPathPatterns("/pet/register")
+        registry.addInterceptor(new UserAuthInterceptor()).addPathPatterns("/pet/register")
         .addPathPatterns("/pet/get")
         .addPathPatterns("/pet/modify")
         .addPathPatterns("/pet/remove")
-        .addPathPatterns("/pet/list");
+        .addPathPatterns("/pet/list")
+        .addPathPatterns("/userAppointment/list")
+        .addPathPatterns("/userAppointment/modify");
+        registry.addInterceptor(new HospitalAuthInterceptor()).addPathPatterns("/appointment/list")
+        .addPathPatterns("/appointment/modify");
     }
     
     /**

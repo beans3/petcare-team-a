@@ -1,6 +1,5 @@
 package com.petcare.web.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -27,20 +26,26 @@ public class FavoriteController {
 	//즐겨찾기 등록
 	@Transactional
 	@GetMapping("/register")
-	public String favoriteInsert(HttpSession session, FavoriteVO favorite) {
+	public String favoriteInsert(HttpSession session, FavoriteVO favorite, Model model) {
 		UserVO user = (UserVO) session.getAttribute("user");
 		user.getUserId();
 		favorite.getHospitalId();
 		favorite.setUserId(user.getUserId());
 		favoriteService.register(favorite);
+		List<FavoriteVO> hospitals = favoriteService.selectForUser(user.getUserId());
+		model.addAttribute("favorites", hospitals);
 		return "favorite/favorite";
 	}
 	
 	//즐겨찾기 삭제
 	@Transactional
 	@GetMapping("/delete")
-	public String favoriteDelete(HttpSession session, int favoriteNo) {
+	public String favoriteDelete(HttpSession session, @RequestParam("favoriteNo") int favoriteNo, Model model) {
+		UserVO user = (UserVO) session.getAttribute("user");
+		user.getUserId();
 		favoriteService.delete(favoriteNo);
+		List<FavoriteVO> hospitals = favoriteService.selectForUser(user.getUserId());
+		model.addAttribute("favorites", hospitals);
 		return "favorite/favorite";
 	}
 	
@@ -48,21 +53,19 @@ public class FavoriteController {
 	@GetMapping("/foruser")
 	public String favoriteForUser(HttpSession session, Model model){
 		UserVO user = (UserVO) session.getAttribute("user");
-		List<String> hospitals = favoriteService.selectForUser(user.getUserId());
-		model.addAttribute("hospitals", hospitals);
-		System.out.println(hospitals);
+		List<FavoriteVO> hospitals = favoriteService.selectForUser(user.getUserId());
+		model.addAttribute("favorites", hospitals);
 		//model.addAllAttributes(hospitals);
 		return "favorite/favorite";
-
 	}
-	
+
 	//병원용 즐겨찾기
 	@GetMapping("/forhospital")
-	public String favoriteForHospital(@RequestParam("hospitalId") String hospitalId){
-		List<UserVO> result = new ArrayList<UserVO>();
-		List<String> users = favoriteService.selectForHospital(hospitalId);
+	public String favoriteForHospital(HttpSession session, Model model){
+		Hospital hospital = (Hospital) session.getAttribute("hospital");
+		List<FavoriteVO> users = favoriteService.selectForHospital(hospital.getHospitalId());
+		model.addAttribute("favorites", users);
 		return "favorite/favorite";
-	
 	}
 
 }

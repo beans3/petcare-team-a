@@ -2,6 +2,8 @@ package com.petcare.web.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.petcare.web.domain.PetVO;
 import com.petcare.web.domain.Criteria;
 
@@ -11,7 +13,7 @@ public interface PetMapper {
     
     public List<PetVO> getList(); //동물 리스트
     
-    public List<PetVO> getListWithPaging(Criteria cri); //동물 리스트 페이징
+    public List<PetVO> getListWithPaging(@Param("cri") Criteria cri, @Param("userId") String userId); //동물 리스트 페이징
     
     public PetVO read(int petNo); //동물 정보 조회
     

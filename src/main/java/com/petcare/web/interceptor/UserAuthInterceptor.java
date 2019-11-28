@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-public class AuthInterceptor extends HandlerInterceptorAdapter{
+public class UserAuthInterceptor extends HandlerInterceptorAdapter{
 
 	private void saveDestination(HttpServletRequest request) {
 		String uri = request.getRequestURI();

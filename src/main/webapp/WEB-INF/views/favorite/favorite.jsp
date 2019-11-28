@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,27 +9,29 @@
 </head>
 <body>
 Favorite 리스트 페이지
-
-	<form method="get" action="/favorite/delete"> 
+	
+		
 		<table border="1">
-			<tr>
-				<th>Favorite</th>
-				<th>User</th>
-				<th>Hospital</th>
-				<th>삭제<th>
-			</tr>
-			
-			<!-- 병원용 추가하기 -->
-			<c:forEach items="${hospitals}" var="hospitals">
 				<tr>
-					<td>넘버추가</td>
-					<td>나야 나</td>
-					<td>${hospitals}</td>
-					<td><input type="button" value="삭제"></td>
-					
+					<th>No</th>
+					<th>User</th>
+					<th>Hospital</th>
+					<th>삭제<th>
 				</tr>
+				<c:forEach items="${favorites}" var="favorites">
+				<!-- HSJ form 위치? -->
+				<form method="get" action="/favorite/delete"> 
+				<tr>
+					<td>${favorites.favoriteNo}</td>
+					<td>${favorites.userId}</td>
+					<td><a href='<c:out value="/hospital/get?hospitalId=${favorites.hospitalId}"/>'>${favorites.hospitalId}</a></td>
+					<td><input type="submit" value="삭제">
+					<input type="hidden" name="favoriteNo" value="${favorites.favoriteNo}">
+				</tr>
+				</form>
 			</c:forEach>
+			
 		</table>
-	</form>
+	
 </body>
 </html>

@@ -1,5 +1,9 @@
 package com.petcare.web.service;
 
+import java.util.List;
+
+import com.petcare.web.domain.AppointmentVo;
+import com.petcare.web.domain.Criteria;
 import com.petcare.web.domain.UserVO;
 
 public interface MemberService {
@@ -15,4 +19,14 @@ public interface MemberService {
 	public UserVO getList(UserVO user);
 	//수정
 	public void update(UserVO user);
+	
+	public List<AppointmentVo> getLists(Criteria cri, String userId);
+	
+	public AppointmentVo get(int apptNo);
+	
+	public boolean remove(int apptNo);
+	
+	public boolean modify(AppointmentVo appointment);
+	
+	public int getTotal(Criteria cri);
 }

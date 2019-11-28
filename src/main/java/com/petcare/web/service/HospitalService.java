@@ -11,8 +11,10 @@ public interface HospitalService {
 	public List<String> codename(String hospitalId);
 	//병원 전체 리스트
 	public List<Hospital> list();
-	//병원 검색
-	public List<Hospital> search(String hospitalName);
+	//병원 이름 검색
+	public List<Hospital> searchName(String hospitalName);
+	//병원 주소 검색
+	public List<Hospital> searchAddress(String hospitalAddress);
 	//병원 보기
 	public Hospital view(String hospitalId);
 	//병원 회원가입

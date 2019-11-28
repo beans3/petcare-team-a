@@ -22,7 +22,7 @@
 
 <div class="screen">
 	<div class="panel panel-default">
-		<div class="panel-heading">${login.id} 반려동물
+		<div class="panel-heading">${user.userId}님의 반려동물
 			<button id="regBtn" class="btn btn-xs pull-right btn btn-primary">추가</button>
 		</div>
 	</div>

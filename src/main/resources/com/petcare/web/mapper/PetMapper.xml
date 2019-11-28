@@ -43,8 +43,9 @@
 		select  p.pet_no, p.pet_name, p.pet_gender, p.pet_neuter, p.pet_weight, p.pet_species, p.pet_breed, p.pet_age, p.pet_regdate, p.user_id, t.treat_regdate
 		from pet p
 		left outer join treatment t on p.pet_no = t.pet_no
+		where p.user_id = #{userId}
 		order by p.pet_no asc
-    	limit #{pageStart}, #{amount}
+    	limit #{cri.pageStart}, #{cri.amount}
     </select>
     
     <select id="getTotalCount" resultType="int">

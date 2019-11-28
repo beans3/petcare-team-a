@@ -11,7 +11,7 @@ public interface PetService {
 	
 	//public List<AnimalVo> getList(); //동물 리스트
 	
-	public List<PetVO> getList(Criteria cri);
+	public List<PetVO> getList(Criteria cri, String userId);
 	
 	public PetVO get(int petNo); //동물정보 조회
 	

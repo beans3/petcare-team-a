@@ -1,5 +1,10 @@
 package com.petcare.web.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.petcare.web.domain.PetVO;
+import com.petcare.web.domain.UserVO;
 import com.petcare.web.domain.Criteria;
 import com.petcare.web.domain.PageDto;
 import com.petcare.web.service.PetService;
@@ -27,9 +33,14 @@ public class PetController {
 
 	//동물 리스트
 	@GetMapping("/list")
-	public void list(Criteria cri, Model model) {
+	public void list(HttpSession httpSession, Criteria cri, Model model) {
 		
-		model.addAttribute("list", service.getList(cri));
+		UserVO user = (UserVO) httpSession.getAttribute("user");
+		
+		List<PetVO> pets = new ArrayList<PetVO>();
+		pets = service.getList(cri, user.getUserId());
+		
+		model.addAttribute("list", pets);
 		
 		int total =service.getTotal(cri);
 		
