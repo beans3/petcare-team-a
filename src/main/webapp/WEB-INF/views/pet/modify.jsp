@@ -15,8 +15,12 @@
 </head>
 <body>
 <div class="screen">
-	<div class="panel panel-default">
-		<div class="panel-heading">반려 동물 수정</div>
+	<div class="row text-center" style="width: 100%">
+	   <div style="width: 30%; float:none; margin:0 auto" >
+	       <div>
+				<strong>반려 동물 수정</strong>
+		   </div>
+	  </div>
 	</div>
 	<form:form role="form" action="/pet/modify" method="post" modelAttribute="pet">
 	
@@ -74,9 +78,13 @@
 		</div>
 	
 		<div>
-			<button type="submit" data-oper='modify' class="btn btn-default">수정</button>
+<!-- 			<button type="submit" data-oper='modify' class="btn btn-default">수정</button>
 			<button type="submit" data-oper='remove' class="btn btn-default">삭제</button>
-			<button type="submit" data-oper='list' class="btn btn-default">목록</button>
+			<button type="submit" data-oper='list' class="btn btn-default">목록</button> -->
+			<!-- 버튼 모양 변경 -->
+			<button type="submit" data-oper='modify' class="btn btn-primary">수정</button>
+			<button type="submit" data-oper='remove' class="btn btn-danger">삭제</button>
+			<button type="submit" data-oper='list' class="btn btn-dark">목록</button>
 		</div>
 	</form:form>
 </div>
@@ -92,7 +100,8 @@ $(document).ready(function(){
 		if(operation === 'remove'){
 			formObj.attr("action", '/pet/remove?petNo=${pet.petNo}');
 		}else if(operation === 'list'){
-			formObj.attr("action", "/pet/list").attr("method", "get");
+			/*작성예정 임지영*/
+			/* formObj.attr("action", "/pet/list").attr("method", "get"); */
 			var pageNumTag = $("input[name='pageNum']").clone();
 			var amountTag = $("input[name='amount']").clone();
 			

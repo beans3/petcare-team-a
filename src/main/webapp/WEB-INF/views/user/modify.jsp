@@ -10,13 +10,15 @@
 <link href='<spring:url value="/resources/css/custom.css"/>' rel="stylesheet" />
 </head>
 <body>
-<div>
-	<div class="page-title">
-		<div>
+
+<div class="row text-center" style="width: 100%">
+   <div style="width: 30%; float:none; margin:0 auto" >
+       <div>
 			<strong>유저 개인정보</strong>
-		</div>
-	</div>
+	   </div>
+  </div>
 </div>
+
 <div class="container">
 	<div class="col-lg-2"></div>
 	<div class="col-lg-8">

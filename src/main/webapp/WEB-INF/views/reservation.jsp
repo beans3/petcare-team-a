@@ -10,76 +10,75 @@
 <link href='<spring:url value="/resources/css/custom.css"/>'
 	rel="stylesheet" />
 <!-- jQuery UI CSS파일 -->
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css"
-	type="text/css" />
-<script src='<spring:url value="/resources/js/userJoin.js"/>'></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+
+<script src='<spring:url value="/resources/js/user/Join.js"/>'></script>
 
 </head>
 
 <body>
 
-	<div>
-		<div class="page-title">
-			<div>
-				<strong>병원예약</strong>
-			</div>
-		</div>
-		<div class="row text-center" style="margin-bottom: 5%;">
-			<h4>예약할 날짜를 입력해주세요</h4>
-			<p>예약이 확정되면 유선상으로 알려드립니다.</p>
-			<form id="reserve" action="/reserv/reservationForm" method="post" onsubmit="return goconfirm(this);">
-				<input type="hidden" name="hospitalId" value="${hospitalId}">
-				<select id="petNo" name="petNo">
-				<c:forEach items="${pets}"  var="pet">
-					<option value="${pet.pet_no}">${pet.pet_name} </option>
-				</c:forEach>
-				</select>
-				<input type="text" id="datepicker" name="apptDate"> 
-				<select id="apptTime" name="apptTime">
-					<option value="09:00:00">09:00</option>
-					<option value="09:30:00">09:30</option>
-					<option value="10:00:00">10:00</option>
-					<option value="10:30:00">10:30</option>
-					<option value="11:00:00">11:00</option>
-					<option value="11:30:00">11:30</option>
-					<option value="12:00:00">12:00</option>
-					<option value="12:30:00">12:30</option>
-					<option value="14:00:00">14:00</option>
-					<option value="14:30:00">14:30</option>
-					<option value="15:00:00">15:00</option>
-					<option value="15:30:00">15:30</option>
-					<option value="16:00:00">16:00</option>
-					<option value="16:30:00">16:30</option>
-					<option value="17:00:00">17:00</option>
-					<option value="17:30:00">17:30</option>
-					<option value="18:00:00">18:00</option>
-					<option value="18:30:00">18:30</option>
-					<option value="00:00:00">야간예약(시간협의)</option>
-				</select> 
-				<br>
-				<p style="margin-top: 2%;">예약 메모를 남겨주세요</p>
-				<textarea id="apptNote" name="apptNote" rows="5"
-					style="width: 60%; margin-bottom: 10%;"></textarea>
-				<br>
-				<button type="submit" class="btn btn-primary"> 예약</button>
-			</form>
-		</div>
-	</div>
-
-
+		<!--  가운데 정렬  -->
+		<div class="row text-center" style="width: 100%">
+            <div style="width: 30%; float:none; margin:0 auto" >
+                <div>
+                	<h1>병원예약</h1>
+					<div class="row text-center" style="margin-bottom: 5%;">
+						<h4>예약할 날짜를 입력해주세요</h4><br>
+						<p>예약이 확정되면 유선상으로 알려드립니다.</p><br>
+						<form id="reserve" action="/reserv/reservationForm" method="post" onsubmit="return goconfirm(this);">
+							<input type="hidden" name="hospitalId" value="${hospitalId}">
+							<select id="petNo" name="petNo">
+							<c:forEach items="${pets}"  var="pet">
+								<option value="${pet.pet_no}">${pet.pet_name} </option>
+							</c:forEach>
+							</select>
+							<input type="text" id="datepicker" name="apptDate"> 
+							<select id="apptTime" name="apptTime">
+								<option value="09:00:00">09:00</option>
+								<option value="09:30:00">09:30</option>
+								<option value="10:00:00">10:00</option>
+								<option value="10:30:00">10:30</option>
+								<option value="11:00:00">11:00</option>
+								<option value="11:30:00">11:30</option>
+								<option value="12:00:00">12:00</option>
+								<option value="12:30:00">12:30</option>
+								<option value="14:00:00">14:00</option>
+								<option value="14:30:00">14:30</option>
+								<option value="15:00:00">15:00</option>
+								<option value="15:30:00">15:30</option>
+								<option value="16:00:00">16:00</option>
+								<option value="16:30:00">16:30</option>
+								<option value="17:00:00">17:00</option>
+								<option value="17:30:00">17:30</option>
+								<option value="18:00:00">18:00</option>
+								<option value="18:30:00">18:30</option>
+								<option value="00:00:00">야간예약(시간협의)</option>
+							</select> 
+							<br>
+							<p style="margin-top: 2%;">예약 메모를 남겨주세요</p>
+							<textarea id="apptNote" name="apptNote" rows="5"
+								style="width: 60%; margin-bottom: 10%;"></textarea>
+							<br>
+							<button type="submit" class="btn btn-primary"> 예약</button>
+						</form>
+					</div>
+            	</div>
+         	</div>
+    	</div>
 
 	<!--validate JQuery  -->
 	<script src='<spring:url value="/resources/js/jquery.validate.js"/>'></script>
-
-	<!-- jQuery 기본 js파일 -->
-	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<!-- jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<!-- jQuery UI 라이브러리 js파일 -->
 	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+	
 	<script type="text/javascript">
-		//캘린더 설정, 20일까지 예약가능, 일요일 예약 불가
+		//캘린더 설정, 20일까지 예약가능, 일요일 예약 불가S
 		$(function() {
+			console.log("왜안되는거지..");
 			$("#datepicker").datepicker({
 				minDate : 0,
 				maxDate : 20,

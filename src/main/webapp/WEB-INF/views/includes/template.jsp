@@ -30,6 +30,18 @@
 		<script type="text/javascript" src="/resources/js/maps.js"></script>
 		<script type="text/javascript" src="/resources/js/app.js"></script>
 		
+		<!-- jquery -->
+		<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
+		<!-- templete.jsp -->
+		<!-- <script type="text/javascript" src="/resources/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="/resources/styles/bootstrap4/popper.js"></script>
+		<script type="text/javascript" src="/resources/styles/bootstrap4/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/resources/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+		<script type="text/javascript" src="/resources/plugins/easing/easing.js"></script>
+		<script type="text/javascript" src="/resources/plugins/parallax-js-master/parallax.min.js"></script>
+		<script type="text/javascript" src="/resources/js/custom.js"></script>	 -->	   		
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		<script type="text/javascript" src="/resources/js/ie10-viewport-bug-workaround.js"></script>
 		<!-- Custom javascript -->

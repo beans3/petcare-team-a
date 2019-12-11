@@ -47,9 +47,13 @@
 				<option value="1" <c:if test="${appt.apptStatus == 1}">selected</c:if>>에약취소</option>
 			</select>
 		</div>
-			<button type="submit" data-oper='modify' class="btn btn-default">수정</button>
+			<!-- <button type="submit" data-oper='modify' class="btn btn-default">수정</button>
 			<button type="submit" data-oper='remove' class="btn btn-default">삭제</button>
-			<button type="submit" data-oper='list' class="btn btn-default">목록</button>
+			<button type="submit" data-oper='list' class="btn btn-default">목록</button> -->
+			<button type="submit" data-oper='modify' class="btn btn-primary">수정</button>
+			<button type="submit" data-oper='remove' class="btn btn-danger">삭제</button>
+			<button type="submit" data-oper='list' class="btn btn-dark">목록</button>
+			<button type="submit" data-oper='medicalRecord' class="btn btn-warning">진료기록 작성</button>
 		<div>
 		
 		</div>
@@ -79,6 +83,18 @@ $(document).ready(function(){
 			formObj.append(amountTag);
 			formObj.append(searchTypeTag);
 			formObj.append(keywordTag);
+		}else if(operation === 'medicalRecord'){
+			formObj.attr("action", "/appointment/list").attr("method", "get");
+			var pageNumTag = $("input[name='pageNum']").clone();
+			var amountTag = $("input[name='amount']").clone();
+			var searchTypeTag = $("input[name='searchType']").clone();
+			var keywordTag = $("input[name='keyword']").clone();
+			
+			formObj.empty();
+			formObj.append(pageNumTag);
+			formObj.append(amountTag);
+			formObj.append(searchTypeTag);
+			formObj.append(keywordTag);			
 		}
 		
 		formObj.submit();
