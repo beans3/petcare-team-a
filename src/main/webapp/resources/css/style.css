@@ -5685,5 +5685,6 @@ table.manage-table .title-container .title span {
 .img-inside-map{
     height: 222px;
 }
+.container{width:1200px; max-width:none!important;}
 
 
