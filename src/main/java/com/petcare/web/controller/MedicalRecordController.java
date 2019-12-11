@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.petcare.web.domain.MedicalRecordVO;
 import com.petcare.web.service.MedicalRecordService;
@@ -25,11 +27,13 @@ public class MedicalRecordController {
 	//병원진료페이지로 이동
 	@GetMapping("/medicalRc")
 	public String medicalRc(@RequestParam("apptNo") int apptNo, HttpSession session) {
+		
+		
 		return "appointment/medicalRecord";
 	}
 	
 	@PostMapping("/insertMedicalRc")
-	public String insertMedicalRc(@RequestParam("apptNo") int apptNo, HttpSession session, @ModelAttribute MedicalRecordVO medicalRecordVO) {
+	public String insertMedicalRc(@RequestBody int apptNo, HttpSession session, @ModelAttribute MedicalRecordVO medicalRecordVO) {
 		
 		System.out.println("%%%%%%%%%모델 : "+medicalRecordVO);
 		String hospitalId = (String) session.getAttribute("hospitalId");
@@ -44,9 +48,9 @@ public class MedicalRecordController {
 		
 	}
 	
-	@PostMapping("/")
-	public String mrList() {
+	@GetMapping("/list")
+	public String mrList(HttpSession session) {
 		
-		return "";
+		return "appointment/mrList";
 	}
 }
