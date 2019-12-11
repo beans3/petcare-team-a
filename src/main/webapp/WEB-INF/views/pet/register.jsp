@@ -13,9 +13,13 @@
 </head>
 <body>
 <div class="screen">
-	<div class="panel panel-default">
-		<div class="panel-heading">반려 동물 등록</div>
-	</div>
+<div class="row text-center" style="width: 100%">
+   <div style="width: 30%; float:none; margin:0 auto" >
+       <div>
+			<strong>반려 동물 등록</strong>
+	   </div>
+  </div>
+</div>
 	<form:form action="/pet/register" method="post" modelAttribute="pet">
 		<div class="form-group">
 			<label>이름</label>
@@ -67,8 +71,12 @@
 		<input type="hidden" name="userId" value="${user.userId}">
 	</div>
 	
-		<button type="submit" class="btn btn-default">등록</button>
-		<button type="button" class="btn btn-default" onclick="self.location='/pet/list'">취소</button>
+		<!-- <button type="submit" class="btn btn-default">등록</button>
+		<button type="button" class="btn btn-default" onclick="self.location='/pet/list'">취소</button> -->
+		<!-- 버튼 모양 변경 -->
+		<button type="submit" class="btn btn-primary">등록</button>
+		<button type="submit" class="btn btn-danger" onclick="self.location='/pet/list'">취소</button>
+		
 		</form:form>
 </div>
 </body>

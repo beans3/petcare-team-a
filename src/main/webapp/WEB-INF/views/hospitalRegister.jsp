@@ -12,14 +12,15 @@
 <script src='<spring:url value="/resources/js/user/Join.js"/>'></script>
 </head>
 <body>
-<div>
-	<div class="page-title">
-		<div>
+<div class="row text-center" style="width: 100%">
+   <div style="width: 30%; float:none; margin:0 auto" >
+       <div>
 			<strong>병원 회원가입</strong>
-			<p>회원정보를 입력하여주세요.</p>
-		</div>
-	</div>
+				<p>회원정보를 입력하여주세요.</p>
+	   </div>
+  </div>
 </div>
+
 <div class="container">
 	<div class="col-lg-2"></div>
 	<div class="col-lg-10">

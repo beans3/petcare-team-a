@@ -12,7 +12,7 @@
 		<tiles:insertAttribute name="nav" />
 		<tiles:insertAttribute name="content" />
 		<tiles:insertAttribute name="footer" />
-		
+
 		<script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/resources/js/bootstrap-submenu.js"></script>
 		<script type="text/javascript" src="/resources/js/rangeslider.js"></script>
@@ -28,11 +28,11 @@
 		<script type="text/javascript" src="/resources/js/dropzone.js"></script>
 		<script type="text/javascript" src="/resources/js/jquery.filterizr.js"></script>
 		<script type="text/javascript" src="/resources/js/maps.js"></script>
-		<script type="text/javascript" src="/resources/js/app.js"></script>
-		
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		<script type="text/javascript" src="/resources/js/ie10-viewport-bug-workaround.js"></script>
-		<!-- Custom javascript -->
-		<script type="text/javascript" src="/resources/js/ie10-viewport-bug-workaround.js"></script>
+		<script type="text/javascript" src="/resources/js/app.js"></script>   		
+
+		<!-- jquery -->
+		<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
 	</body>
 </html>
