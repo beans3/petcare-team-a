@@ -113,68 +113,7 @@
 
 @media only screen and (max-width: 991px)
 {
-	.home_title
-	{
-		font-size: 48px;
-	}
-	.header,
-	.header.scrolled
-	{
-		position: fixed;
-		top: 0px;
-		left: 0;
-	}
-	.header_top_extra,
-	.header_nav
-	{
-		display: none !important;
-	}
-	.hamburger
-	{
-		display: block;
-	}
-	.info_form_container
-	{
-		padding-bottom: 44px;
-	}
-	.info_box_col:not(:last-child)
-	{
-		margin-bottom: 40px;
-	}
-	.news
-	{
-		margin-top: 100px;
-	}
-	.footer_col:not(:last-child)
-	{
-		margin-bottom: 100px;
-	}
-	.footer_contact
-	{
-		padding-top: 0;
-	}
-	.footer_bar_content
-	{
-		height: auto;
-		padding-top: 30px;
-		padding-bottom: 30px;
-	}
-	.footer_nav ul li:not(:last-child)
-	{
-		margin-bottom: 8px;
-	}
-	.footer_links ul li:not(:last-child)::after
-	{
-		display: none;
-	}
-	.footer_phone
-	{
-		margin-left: 80px;
-	}
-	.footer_links ul li:not(:last-child)
-	{
-		margin-bottom: 7px;
-	}
+
 }
 
 /************
@@ -210,10 +149,7 @@
 
 @media only screen and (max-width: 767px)
 {
-	.dept_slider_nav
-	{
-		display: none;
-	}
+
 }
 
 /************

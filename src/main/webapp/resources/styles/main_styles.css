@@ -462,7 +462,7 @@ section
 .header_nav_container
 {
 	z-index: 1;
-	background: #32c69a;
+	background: #333333;
 }
 .header_nav_content
 {
@@ -1696,3 +1696,4 @@ section
 	font-size: 20px;
 	color: #32c69a;
 }
+.container { width: 1000px !important; }

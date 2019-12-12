@@ -19,5 +19,7 @@
 		<typeAlias alias="Hospital" type="com.petcare.web.domain.Hospital"/>
 		<!-- 특성 -->
 		<typeAlias alias="Codename" type="com.petcare.web.domain.Codename"/>
+		<!-- 진료차트VO 추가 20191211 -->
+		<typeAlias alias="MedicalRecordVO" type="com.petcare.web.domain.MedicalRecordVO"/>
 	</typeAliases>
 </configuration>
