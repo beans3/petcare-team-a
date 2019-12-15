@@ -4,13 +4,6 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-
-    <definition name="base" template="/WEB-INF/views/includes/template.jsp">
-    	<put-attribute name="head" value="/WEB-INF/views/includes/head.jsp" />
-        <put-attribute name="header" value="/WEB-INF/views/includes/header.jsp"/>
-        <!-- <put-attribute name="nav" value="/WEB-INF/views/includes/defaultNav.jsp" /> -->
-        <put-attribute name="footer" value="/WEB-INF/views/includes/footer.jsp"/>
-    </definition>
     
     <definition name="defaultLayout" template="/WEB-INF/views/includes/defaultLayouts.jsp">
    	   	<put-attribute name="head" value="/WEB-INF/views/includes/head.jsp" />
@@ -33,14 +26,20 @@
     <definition name="*" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/{1}.jsp"></put-attribute>
     </definition>
+    
+    <definition name="base" template="/WEB-INF/views/includes/template.jsp">
+    	<put-attribute name="head" value="/WEB-INF/views/includes/head.jsp" />
+        <put-attribute name="header" value="/WEB-INF/views/includes/header.jsp"/>
+        <!-- <put-attribute name="nav" value="/WEB-INF/views/includes/defaultNav.jsp" /> -->
+        <put-attribute name="footer" value="/WEB-INF/views/includes/footer.jsp"/>
+    </definition>
 
     <definition name="/*/*" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
     </definition>
     
-    
-   <!--  <definition name="*/*" extends="base">
+    <definition name="*/*" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
-    </definition> -->
+    </definition>
     
 </tiles-definitions>
