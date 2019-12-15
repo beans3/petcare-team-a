@@ -104,7 +104,7 @@ window.onload = function() {
 				</div> --%>
 				
 				<div class="form-group">
-					<p style="font-weight: bold;">특성을 골라주세요.</p>
+					<p><label style="font-weight: bold;">특성을 골라주세요.</label></p>
 					<div class="form-check form-check-inline col-md-3">
 						<label class="form-check-label" for="cCode1">
 							<input type="checkbox" class="form-check-input" name="cCode" id="cCode1" value="1">야간진료
@@ -126,7 +126,19 @@ window.onload = function() {
 						</label>
 					</div>
 				</div>
-
+				
+				<div class="from-group">
+					<label style="font-weight: bold;">취급 동물</label> 
+					<select class="form-control" name="hospitalSpecies">
+						<option value="개" <c:if test="${list.hospitalSpecies eq '개'}">selected</c:if>>개</option>
+						<option value="고양이" <c:if test="${list.hospitalSpecies eq '고양이'}">selected</c:if>>고양이</option>
+						<option value="말" <c:if test="${list.hospitalSpecies eq '말'}">selected</c:if>>말</option>
+						<option value="새" <c:if test="${list.hospitalSpecies eq '새'}">selected</c:if>>새</option>
+						<option value="햄스터" <c:if test="${list.hospitalSpecies eq '햄스터'}">selected</c:if>>햄스터</option>
+						<option value="기니피그" <c:if test="${list.hospitalSpecies eq '기니피그'}">selected</c:if>>기니피그</option>
+					</select> 
+				</div>
+				
 				<div class="form-group">
 					<label style="font-weight: bold;">세부사항</label>
 					<textarea class="form-control" maxlength="2048" style="height: 350px;" name="hospitalIntro" id="hospitalIntro">${list.hospitalIntro}</textarea>
