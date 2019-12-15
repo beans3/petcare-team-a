@@ -12,9 +12,13 @@
 </head>
 <body>
 <div class="screen">
-	<div class="panel panel-default">
-		<div class="panel-heading">반려 동물 정보</div>
-	</div>
+<div class="row text-center" style="width: 100%">
+   <div style="width: 30%; float:none; margin:0 auto" >
+       <div>
+			<strong>반려 동물 정보</strong>
+	   </div>
+  </div>
+</div>
 	<div class="form-group">
 		<label>이름</label> <input class="form-control" type="text" name="petName"  value="${pet.petName}" readonly="readonly">
 	</div>

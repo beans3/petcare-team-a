@@ -19,12 +19,13 @@
 	</div>
 	
 	<form role="form" action="/appointment/modify" method="post">
-		<input type='hidden' name='apptNo' value="${appt.apptNo}">
+		<input type='hidden' name='apptNo' id='apptNo' value="${appt.apptNo}">
 		<input type="hidden" name='pageNum' value="${cri.pageNum}">
 		<input type="hidden" name='amount' value="${cri.amount}">
 		<input type="hidden" name='searchType' value="${cri.searchType}">
 		<input type="hidden" name='keyword' value="${cri.keyword}">
-		
+		<!-- session값 넘기기 -->
+		<c:set var="hospitalId" value="${hospitalId}" scope="session"  />
 		<div class="form-group">
 			<label>예약날짜</label> <input class="form-control" value=<fmt:formatDate value="${appt.apptDate}" pattern="yyyy/MM/dd"/> readonly="readonly">
 		</div>
@@ -47,9 +48,13 @@
 				<option value="1" <c:if test="${appt.apptStatus == 1}">selected</c:if>>에약취소</option>
 			</select>
 		</div>
-			<button type="submit" data-oper='modify' class="btn btn-default">수정</button>
+			<!-- <button type="submit" data-oper='modify' class="btn btn-default">수정</button>
 			<button type="submit" data-oper='remove' class="btn btn-default">삭제</button>
-			<button type="submit" data-oper='list' class="btn btn-default">목록</button>
+			<button type="submit" data-oper='list' class="btn btn-default">목록</button> -->
+			<button type="submit" data-oper='modify' class="btn btn-primary">수정</button>
+			<button type="submit" data-oper='remove' class="btn btn-danger">삭제</button>
+			<button type="submit" data-oper='list' class="btn btn-dark">목록</button>
+			<button type="submit" data-oper='medicalRecord' class="btn btn-warning">진료기록 작성</button>
 		<div>
 		
 		</div>
@@ -79,6 +84,9 @@ $(document).ready(function(){
 			formObj.append(amountTag);
 			formObj.append(searchTypeTag);
 			formObj.append(keywordTag);
+		}else if(operation === 'medicalRecord'){
+			formObj.attr("action", "/mr/medicalRc").attr("method", "get");
+		
 		}
 		
 		formObj.submit();

@@ -44,9 +44,12 @@
 				<option value="1" <c:if test="${appt.apptStatus == 1}">selected</c:if>>에약취소</option>
 			</select>
 		</div>
-			<button type="submit" data-oper='modify' class="btn btn-default">수정</button>
+			<!-- <button type="submit" data-oper='modify' class="btn btn-default">수정</button>
 			<button type="button" data-oper='remove' class="btn btn-default">삭제</button>
-			<button type="button" data-oper='list' class="btn btn-default">목록</button>
+			<button type="button" data-oper='list' class="btn btn-default">목록</button> -->
+			<button type="submit" data-oper='modify' class="btn btn-primary">수정</button>
+			<button type="button" data-oper='remove' class="btn btn-danger">삭제</button>
+			<button type="button" data-oper='list' class="btn btn-dark">목록</button>
 		<div>
 		
 		</div>
