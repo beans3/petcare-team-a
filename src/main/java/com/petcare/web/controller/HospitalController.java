@@ -10,11 +10,16 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +31,7 @@ import com.petcare.web.domain.Hospital;
 import com.petcare.web.domain.UserVO;
 import com.petcare.web.service.FavoriteService;
 import com.petcare.web.service.HospitalService;
+import com.petcare.web.validator.HospitalValidator;
 
 @Controller
 @RequestMapping("/hospital")
@@ -35,9 +41,17 @@ public class HospitalController {
 	private HospitalService hospitalService;
 	@Autowired
 	private FavoriteService favoriteService;
+	/*
+	 * @Autowired private HospitalValidator hospitalValidator;
+	 */
 	
 	Map<String, Object> codename = new HashMap<String, Object>();
 	List<String> cn = new ArrayList<String>();
+	
+	/*
+	 * @InitBinder private void initBinder(WebDataBinder webDataBinder) {
+	 * webDataBinder.setValidator(hospitalValidator); }
+	 */
 	
 	//병원 정보
 	@GetMapping("/get")
@@ -109,8 +123,24 @@ public class HospitalController {
 		return "join/hospital";
 	}
 	
+	/*
+	 * public String register(@ModelAttribute("hospital") @Valid Hospital hospital,
+	 * BindingResult result, HttpServletRequest request)
+	 */ 
 	@PostMapping("/Join")
-	public String register(Hospital hospital, HttpServletRequest request) {
+	public String register(Hospital hospital, HttpServletRequest request) 
+	{
+		
+		/*
+		 * String msg = null;
+		 * 
+		 * if(result.hasErrors()) {
+		 * 
+		 * List<FieldError> erros = result.getFieldErrors(); for(FieldError error:
+		 * erros) { msg = error.getDefaultMessage(); }
+		 * 
+		 * return "join/hospital"; }
+		 */
 		
 		hospitalService.register(hospital);
 		
@@ -172,9 +202,23 @@ public class HospitalController {
 		return "hospital/modify";
 	}
 	
+	/*
+	 * public String update(@ModelAttribute("hospital") @Valid Hospital hospital,
+	 * BindingResult result, HttpServletRequest request)
+	 */
 	@PostMapping("/modify")
 	public String update(Hospital hospital, HttpServletRequest request)
 	{
+		/*
+		 * String msg = null;
+		 * 
+		 * if(result.hasErrors()) {
+		 * 
+		 * List<FieldError> erros = result.getFieldErrors(); for(FieldError error:
+		 * erros) { msg = error.getDefaultMessage(); }
+		 * 
+		 * return "join/hospital"; }
+		 */
 		hospitalService.modify(hospital);
 		
 		String[] list = request.getParameterValues("cCode");

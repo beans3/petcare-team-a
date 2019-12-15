@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>병원 회원가입</title>
 <link href='<spring:url value="/resources/css/custom.css"/>' rel="stylesheet" />
-<script src='<spring:url value="/resources/js/user/Join.js"/>'></script>
+<script src='<spring:url value="/resources/js/hospital/Join.js"/>'></script>
 </head>
 <body>
 <div class="row text-center" style="width: 100%">

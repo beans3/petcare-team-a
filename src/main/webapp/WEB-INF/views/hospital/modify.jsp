@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>병원 정보수정</title>
 <link href='<spring:url value="/resources/css/custom.css"/>' rel="stylesheet" />
-<script src='<spring:url value="/resources/js/user/update.js"/>'></script>
+<script src='<spring:url value="/resources/js/hospital/update.js"/>'></script>
 <script type="text/javascript">
 window.onload = function() {
 	var list1 = new Array();
@@ -39,11 +39,12 @@ window.onload = function() {
 		</div>
 	</div>
 </div>
-<div class="container">
-	<div class="col-lg-2"></div>
-	<div class="col-lg-10">
-		<div class="jumbotron" style="padding-top: 20px;">
-			<form action="/hospital/modify" method="post">
+<div class="container-fluid text-center m-t-30 m-b-20">
+	<div class="row content">
+		<div class="col-sm-2 sidenav">
+		</div>
+		<div class="col-sm-8 text-left" style="height:100%;">
+			<form id="hospitalModify" action="/hospital/modify" method="post">
 				<div class="form-group">
 					<label>아이디</label>
 					<input type="text" class="form-control" readonly="readonly" id="hospitalId" name="hospitalId" value="${list.hospitalId}">
@@ -135,9 +136,10 @@ window.onload = function() {
 					<input type="submit" class="btn btn-primary" value="수정">
 				</div>														
 			</form>
+	    <div class="col-sm-2 sidenav">
+	    </div>
 		</div>
 	</div>
-	<div class="col-lg-2"></div>
 </div>
 <!--validate JQuery  -->
 <script src='<spring:url value="/resources/js/jquery.validate.js"/>'></script>

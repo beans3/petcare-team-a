@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>유저 개인정보</title>
 <link href='<spring:url value="/resources/css/custom.css"/>' rel="stylesheet" />
+<script src='<spring:url value="/resources/js/user/update.js"/>'></script>
 </head>
 <body>
 
@@ -19,11 +20,47 @@
   </div>
 </div>
 
-<div class="container">
-	<div class="col-lg-2"></div>
-	<div class="col-lg-8">
-		<div class="jumbotron" style="padding-top: 20px;">
-			<form method="post" action="/member/modify">
+<div class="container-fluid text-center m-t-30 m-b-20">
+	<div class="row content">
+		<div class="col-sm-2 sidenav">
+		</div>
+		<div class="col-sm-8 text-left" style="height:100%;">
+<%-- 			<form:form id="userModify" action="/member/modify" method="post" modelAttribute="user">
+				<div class="form-group">
+					<form:label path="userId">아이디</form:label>
+					<form:input path="userId" required="required" type="text" class="form-control" value="${list.userId}"/>
+					<form:errors path="userId" cssClass="text-danger"/>
+				</div>
+				<div class="form-group">
+					<form:label path="userPw">비밀번호</form:label>
+					<form:password path="userPw" required="required" class="form-control" value="${list.userPw}"/>
+					<form:errors path="userPw" cssClass="text-danger"/>
+				</div>
+				<div class="form-group">
+					<form:label path="userName">이름</form:label>
+					<form:input path="userName" required="required" type="text" class="form-control" value="${list.userName}"/>
+					<form:errors path="userName" cssClass="text-danger"/>
+				</div>
+				<div class="form-group">
+					<form:label path="userEmail">이메일</form:label>
+					<form:input path="userEmail" required="required" type="email" class="form-control" value="${list.userEmail}"/>
+					<form:errors path="userEmail" cssClass="text-danger"/>
+				</div>
+				<div class="form-group">
+					<form:label path="userPhone">전화번호</form:label>
+					<form:input path="userPhone" required="required" type="text" class="form-control" value="${list.userPhone}"/>
+					<form:errors path="userPhone" cssClass="text-danger"/>
+				</div>
+				<div class="form-group">
+					<form:label path="userAddress">주소</form:label>
+					<form:input path="userAddress" required="required" type="text" class="form-control" value="${list.userAddress}"/>
+					<form:errors path="userAddress" cssClass="text-danger"/>
+				</div>
+				<div class="col text-center">
+					<input type="submit" class="btn btn-primary" value="수정">
+				</div>											
+			</form:form> --%>
+			<form id="userModify" method="post" action="/member/modify">
 				<div class="form-group">
 					<label>아이디</label>
 					<input type="text" class="form-control" readonly="readonly" name="userId" value="${list.userId}">
@@ -52,9 +89,10 @@
 					<input type="submit" class="btn btn-primary" value="수정">
 				</div>
 			</form>													
+	    <div class="col-sm-2 sidenav">
+	    </div>
 		</div>
 	</div>
-	<div class="col-lg-2"></div>
 </div>
 <!--validate JQuery  -->
 <script src='<spring:url value="/resources/js/jquery.validate.js"/>'></script>

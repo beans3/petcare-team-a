@@ -64,24 +64,22 @@ public class HospitalServiceImpl implements HospitalService {
 		hospitalMapper.codeInsert(codename);
 	}
 
+	//아이디 중복체크(Juery Validator)
 	@Override
 	public int selectID(String id) {
 		String hospitalId = hospitalMapper.selectID(id);
-		if(hospitalId == null) {
+		if(hospitalId == null)
 			return 0;
-		}else {
-			return 1;
-		}
+		return 1;
 	}
 
+	//이메일중복체크(Juery Validator)
 	@Override
 	public int selectEmail(String email) {
 		String hospitalEmail = hospitalMapper.selectEmail(email);
-		if(hospitalEmail == null) {
+		if(hospitalEmail == null)
 			return 0;			
-		}else {
-			return 1;
-		}
+		return 1;
 	}
 
 	//병원 로그인
@@ -112,5 +110,17 @@ public class HospitalServiceImpl implements HospitalService {
 		hospitalMapper.deleteCode(hospital.getHospitalId());
 		
 		hospitalMapper.update(hospital);
+	}
+	
+	//아이디 중복체크(Spring Validator)
+	@Override
+	public Hospital getId(String hospitalId) {
+		return hospitalMapper.getId(hospitalId);
+	}
+
+	//이메일중복체크(Spring Validator)
+	@Override
+	public Hospital getEmail(String hospitalEmail) {
+		return hospitalMapper.getEmail(hospitalEmail);
 	}
 }

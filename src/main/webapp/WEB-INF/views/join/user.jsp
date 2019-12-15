@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>유저 회원가입</title>
 <link href='<spring:url value="/resources/css/custom.css"/>' rel="stylesheet" />
-
+<script src='<spring:url value="/resources/js/user/Join.js"/>'></script>
 </head>
 <body>
 <div class="row text-center" style="width: 100%">
@@ -25,7 +25,40 @@
 		<div class="col-sm-2 sidenav">
 		</div>
 		<div class="col-sm-8 text-left" style="height:100%;">
-			<form:form id="userJoin" action="/member/user" method="post" modelAttribute="user">
+			<form id="userJoin" method="post" action="/member/join">
+				<div class="form-group">
+					<label>아이디</label>
+					<input type="text" class="form-control" id="userId" name="userId" placeholder="아이디를 입력하세요." />
+				</div>
+				<div class="form-group">
+					<label>비밀번호</label>
+					<input type="password" class="form-control" id="userPw" name="userPw" placeholder="비밀번호를 입력하세요." />
+				</div>
+				<div class="form-group">
+					<label>비밀번호</label>
+					<input type="password" class="form-control" id="userPw2" name="userPw2" placeholder="비밀번호 확인을 입력하세요."/>
+				</div>				
+				<div class="form-group">
+					<label>이름</label>
+					<input type="text" class="form-control" id="userName" name="userName" placeholder="이름을 입력하세요."/>
+				</div>
+				<div class="form-group">
+					<label>이메일</label>
+					<input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="이메일을 입력하세요."/>
+				</div>
+				<div class="form-group">
+					<label>전화번호</label>
+					<input type="text" class="form-control" id="userPhone" name="userPhone" placeholder="전화번호를 입력하세요."/>
+				</div>
+				<div class="form-group">
+					<label>주소</label>
+					<input type="text" class="form-control" id="userAddress" name="userAddress" placeholder="주소를 입력하세요."/>
+				</div>				
+				<div class="col text-center">
+					<input type="submit" class="btn btn-primary" value="회원가입">
+				</div>
+			</form>			
+<%-- 			<form:form id="userJoin" action="/member/user" method="post" modelAttribute="user">
 				<div class="form-group">
 					<form:label path="userId">아이디</form:label>
 					<form:input path="userId" required="required" type="text" class="form-control" placeholder="아이디를 입력하세요."/>
@@ -64,7 +97,7 @@
 				<div class="col text-center">
 					<input type="submit" class="btn btn-primary" value="회원가입">
 				</div>															
-			</form:form>
+			</form:form> --%>
 	    <div class="col-sm-2 sidenav">
 	    </div>
 		</div>

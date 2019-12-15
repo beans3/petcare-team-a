@@ -21,9 +21,13 @@ public interface HospitalService {
 	public void register(Hospital hospital);
 	//특성 삽입
 	public void codeInsert (Codename codename);
-	//아이디중복체크
+	//아이디 중복체크(Spring Validator)
+	public Hospital getId(String hospitalId);
+	//이메일중복체크(Spring Validator)
+	public Hospital getEmail(String hospitalEmail);
+	//아이디 중복체크(Juery Validator)
 	public int selectID(String id);
-	//이메일중복체크
+	//이메일중복체크(Juery Validator)
 	public int selectEmail(String email);
 	//병원회원 로그인
 	public Hospital loginPro2(Hospital hospitaluser);
