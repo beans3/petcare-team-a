@@ -40,7 +40,7 @@ public class MemberController {
 	@GetMapping("/normal")
 	public String normal(Model model) {
 		model.addAttribute("user", new UserVO());
-		return "user/normalRegister";
+		return "join/user";
 	}
 	
 	@PostMapping("/user")

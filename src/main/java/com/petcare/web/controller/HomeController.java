@@ -83,7 +83,7 @@ public class HomeController {
 	
 	@GetMapping("/select")
 	public String registerS() {
-		return "user/registerSelect";
+		return "registerSelect";
 
 	}
 }

@@ -20,10 +20,11 @@
   </div>
 </div>
 
-<div class="container">
-	<div class="col-lg-2"></div>
-	<div class="col-lg-8">
-		<div class="jumbotron" style="padding-top: 20px;">
+<div class="container-fluid text-center m-t-30 m-b-20">
+	<div class="row content">
+		<div class="col-sm-2 sidenav">
+		</div>
+		<div class="col-sm-8 text-left" style="height:100%;">
 			<form:form id="userJoin" action="/member/user" method="post" modelAttribute="user">
 				<div class="form-group">
 					<form:label path="userId">아이디</form:label>
@@ -64,9 +65,10 @@
 					<input type="submit" class="btn btn-primary" value="회원가입">
 				</div>															
 			</form:form>
+	    <div class="col-sm-2 sidenav">
+	    </div>
 		</div>
 	</div>
-	<div class="col-lg-2"></div>
 </div>
 <!--validate JQuery  -->
 <script src='<spring:url value="/resources/js/jquery.validate.js"/>'></script>

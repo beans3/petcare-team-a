@@ -106,7 +106,7 @@ public class HospitalController {
 	@GetMapping("/register")
 	public String hospital(Model model) {
 		model.addAttribute("hospital", new Hospital());
-		return "hospitalRegister";
+		return "join/hospital";
 	}
 	
 	@PostMapping("/Join")
