@@ -42,6 +42,7 @@ public class HospitalController {
 	//병원 정보
 	@GetMapping("/get")
 	public void get(HttpSession session, String userId, String hospitalId, Model model) throws IOException {
+		
 		if(session.getAttribute("user") != null) {
 		UserVO user = (UserVO) session.getAttribute("user");
 		userId = user.getUserId();
@@ -73,15 +74,19 @@ public class HospitalController {
 	//병원 검색
 	@GetMapping("/search")
 	public String hospitalSearch(Model model, String choice, String searchValue, String searchWord) {
+		// 이름인지 주소인지?
 		System.out.println(searchValue);
+		//searchWord를 받아와서 만들어줌
 		System.out.println(searchWord);
 		System.out.println(choice);
+		
 		List<Hospital> search = new ArrayList<Hospital>();
 		if(searchValue.equals("name")) {
 			search = hospitalService.searchName(searchWord);
 			for(int i=0; i<search.size(); i++){
 				Map<String, String> map = (Map)search.get(i);
 				String hid = (String)map.get("hospital_id");
+				//병원의 코드로 빼옴
 				cn = hospitalService.codename(hid);
 				codename.put(hid, cn);
 				System.out.println("1번"+search);

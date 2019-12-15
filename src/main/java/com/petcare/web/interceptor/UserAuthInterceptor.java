@@ -26,7 +26,8 @@ public class UserAuthInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-
+		
+		System.out.println("prehandle 인터셉터");
 		HttpSession httpSession = request.getSession();
 
 		if(httpSession.getAttribute("user")==null) {

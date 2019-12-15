@@ -13,6 +13,7 @@ import com.petcare.web.mapper.HospitalMapper;
 
 @Service
 public class HospitalServiceImpl implements HospitalService {
+	
 	@Autowired
 	private HospitalMapper hospitalMapper;
 	
@@ -86,9 +87,10 @@ public class HospitalServiceImpl implements HospitalService {
 
 	//병원 로그인
 	@Override
-	public Hospital loginPro2(Hospital hospitaluser) {
+	public Hospital loginPro2(Hospital hospital) {
 		// TODO Auto-generated method stub
-		return hospitalMapper.loginPro2(hospitaluser);
+		System.out.println(hospital);
+		return hospitalMapper.loginPro2(hospital);
 	}
 	
 	//병원 개인정보

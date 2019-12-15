@@ -16,6 +16,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 import com.petcare.web.interceptor.UserAuthInterceptor;
 import com.petcare.web.interceptor.HospitalAuthInterceptor;
+// import com.petcare.web.interceptor.HospitalAuthInterceptor;
 import com.petcare.web.interceptor.HospitalLoginInterceptor;
 import com.petcare.web.interceptor.LoginIntercepter;
 import com.petcare.web.interceptor.LogoutInterceptor;
@@ -28,7 +29,9 @@ public class ServletConfig implements WebMvcConfigurer {
     
 	@Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+		
         configurer.enable();
+        
     }
 	
 	//리소스경로 정하는 설정
@@ -40,6 +43,7 @@ public class ServletConfig implements WebMvcConfigurer {
     //인터셉터 추가하는 설정
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+    	
         registry.addInterceptor(new SampleInterceptor());
         registry.addInterceptor(new LoginIntercepter()).addPathPatterns("/loginPro");
         registry.addInterceptor(new HospitalLoginInterceptor()).addPathPatterns("/loginPro2");
@@ -51,8 +55,9 @@ public class ServletConfig implements WebMvcConfigurer {
         .addPathPatterns("/pet/list")
         .addPathPatterns("/userAppointment/list")
         .addPathPatterns("/userAppointment/modify");
-        registry.addInterceptor(new HospitalAuthInterceptor()).addPathPatterns("/appointment/list")
-        .addPathPatterns("/appointment/modify");
+		registry.addInterceptor(new HospitalAuthInterceptor()).addPathPatterns("/appointment/list")
+		.addPathPatterns("/appointment/modify");
+		
     }
     
     /**
@@ -60,16 +65,20 @@ public class ServletConfig implements WebMvcConfigurer {
      */
     @Bean
     public TilesConfigurer tilesConfigurer(){
+    	
         TilesConfigurer tilesConfigurer = new TilesConfigurer();
         tilesConfigurer.setDefinitions(new String[] {"/WEB-INF/tiles/tiles.xml"});
         tilesConfigurer.setCheckRefresh(true);
         return tilesConfigurer;
+        
     }
 
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
+		
 		TilesViewResolver viewResolver = new TilesViewResolver();
 		registry.viewResolver(viewResolver);
+		
 	}
 	
     /**

@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
- <link rel="stylesheet" type="text/css" href="./styles.css">
- <style type="text/css">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
 .title {
 	text-align: center;
 	padding: 50px 0 20px;
@@ -31,8 +32,8 @@
 }
 
 .left {
-	margin : 0 auto;
-	width: 100%;
+	float: left;
+	width: 50%;
 	/* height: 56vh; */
 	/* background: url("/resources/images/warren-wong-323107-unsplash.jpg"); */
 	/* 수정*/
@@ -41,8 +42,8 @@
 }
 
 .right {
-	margin : 0 auto;
-	width: 100%;
+	float: right;
+	width: 50%;
 	/* height: 56vh; */
 	box-sizing: border-box;
 }
@@ -175,70 +176,33 @@ h4 {
 	}
 }
 </style>
-<script type="text/javascript">
-
-var loginSelect;
-
-	function init() {
-		
-		loginSelect = document.getElementById("category_id");
-		
-		document.getElementById("right").style.display="none";
-		document.getElementById("left").style.display="";
-	}
-	
-	function change() {
-	
-		if (loginSelect.selectedIndex == 0) {
-			
-			document.getElementById("right").style.display="none";
-			document.getElementById("left").style.display="";
-			
-		} else if (loginSelect.selectedIndex == 1) {	
-			
-			document.getElementById("left").style.display="none";
-			document.getElementById("right").style.display="";
-		
-		}
-	}
-</script>
 </head>
-<body onload="init();">
-<div class="login_div">
-	<select class="form-control" id="category_id" name="sellist" onchange="change()" required>
-		<option value="user" selected>일반회원</option>
-		<option value="hospital">병원회원</option>
-	</select>
-	<div class="left">
-		<div class="formBox" id="left">
-			<form:form id="login_form" modelAttribute="user" method="post" action="/loginPro">
-				<p>일반회원</p>
-				<p>ID</p>
-				<form:input type="text" path="userId" class="id" placeholder="Your ID"/>
-				<form:errors path="userId" cssClass="text-danger"/>
-				<p>Password</p>
-				<form:password path="userPw" class="password" placeholder="●●●●●●"/>
-				<form:errors path="userPw" cssClass="text-danger"/>
-				<button type="submit" class="login_btn">로그인</button>
-			</form:form>
-			<a href="#" class="help_btn">ID 또는 비밀번호를 잊으셨나요?</a>
-		</div>
+<body>
+<section>
+<div class="container">
+	<div class="title">
+		<h1>Login</h1>
 	</div>
-	<div class="right">
-		<div class="formBox" id="right">
-			<form:form id="login_form" modelAttribute="hospital" method="post" action="/loginPro2">
-				<p>병원회원</p>
-				<p>ID</p>
-				<form:input type="text" path="hospitalId" class="id" placeholder="Your ID"/>
-				<form:errors path="hospitalId" cssClass="text-danger"/>
-				<p>Password</p>
-				<form:password path="hospitalPw" class="password" placeholder="●●●●●●"/>
-				<form:errors path="hospitalPw" cssClass="text-danger"/>
-				<button type="submit" class="login_btn">로그인</button>
-			</form:form>
-			<a href="#" class="help_btn">ID 또는 비밀번호를 잊으셨나요?</a>
+	<div class="jumbotron" style="padding-top: 20px;">
+		<div class="login_div" style="padding-top: 20px;">
+			<div class="right">
+				<div class="formBox">
+					<form:form id="login_form" method="post" action="/loginPro2">
+						<p>병원회원</p>
+						<p>ID</p>
+						<form:input type="text" path="hospitalId" class="id" placeholder="Your ID"/>
+						<form:errors path="hospitalId" cssClass="text-danger"/>
+						<p>Password</p>
+						<form:input type="password" path="hospitalPw" class="password" placeholder="●●●●●●"/>
+						<form:errors path="hospitalPw" cssClass="text-danger"/>
+						<button type="submit" class="login_btn">로그인</button>
+					</form:form>
+					<a href="#" class="help_btn">ID 또는 비밀번호를 잊으셨나요?</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
+</section>
 </body>
 </html>
