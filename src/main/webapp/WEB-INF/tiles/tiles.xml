@@ -4,13 +4,6 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-
-    <definition name="base" template="/WEB-INF/views/includes/template.jsp">
-    	<put-attribute name="head" value="/WEB-INF/views/includes/head.jsp" />
-        <put-attribute name="header" value="/WEB-INF/views/includes/header.jsp"/>
-        <put-attribute name="nav" value="/WEB-INF/views/includes/defaultNav.jsp" />
-        <put-attribute name="footer" value="/WEB-INF/views/includes/footer.jsp"/>
-    </definition>
     
     <definition name="defaultLayout" template="/WEB-INF/views/includes/defaultLayouts.jsp">
    	   	<put-attribute name="head" value="/WEB-INF/views/includes/head.jsp" />
@@ -19,8 +12,27 @@
        	<put-attribute name="footer" value="/WEB-INF/views/includes/footer.jsp"/>
    </definition>
 
+   <!-- tiles가 적용되지 않은 회원가입 페이지 -->
+   <definition name="join" template="/WEB-INF/views/includes/empty.jsp">
+   	   	<put-attribute name="head" value="" />
+       	<put-attribute name="header" value=""/>
+       	<put-attribute name="nav" value="" />
+       	<put-attribute name="footer" value=""/>
+   </definition>
+	
+	<definition name="join/*" extends="join">
+        <put-attribute name="body" value="/WEB-INF/views/join/{1}.jsp"></put-attribute>
+    </definition>
+	
     <definition name="*" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/{1}.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="base" template="/WEB-INF/views/includes/template.jsp">
+    	<put-attribute name="head" value="/WEB-INF/views/includes/head.jsp" />
+        <put-attribute name="header" value="/WEB-INF/views/includes/header.jsp"/>
+        <!-- <put-attribute name="nav" value="/WEB-INF/views/includes/defaultNav.jsp" /> -->
+        <put-attribute name="footer" value="/WEB-INF/views/includes/footer.jsp"/>
     </definition>
 
     <definition name="/*/*" extends="base">

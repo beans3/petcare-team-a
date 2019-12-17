@@ -4,14 +4,26 @@
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
-		<tiles:insertAttribute name="head" />
+	<title>Pet Clinic</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Health medical template project">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+	<link rel="stylesheet" type="text/css" href="/resources/styles/bootstrap4/bootstrap.min.css">
+	<link href="/resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="/resources/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="/resources/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="/resources/plugins/OwlCarousel2-2.2.1/animate.css">
+	<link rel="stylesheet" type="text/css" href="/resources/styles/main_styles.css">
+	<link rel="stylesheet" type="text/css" href="/resources/styles/responsive.css">
+
+    <script type="text/javascript" src="/resources/js/ie-emulation-modes-warning.js"></script>
+    
+    <script type="text/javascript" src="/resources/js/jquery-2.2.0.min.js"></script>		
+
 	</head>
     <body>
-    	<div class="page_loader"></div>
-		<tiles:insertAttribute name="header" />
-		<%-- <tiles:insertAttribute name="nav" /> --%>
 		<tiles:insertAttribute name="body" />
-		<tiles:insertAttribute name="footer" />
 		
 		<script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/resources/js/bootstrap-submenu.js"></script>
@@ -29,19 +41,7 @@
 		<script type="text/javascript" src="/resources/js/jquery.filterizr.js"></script>
 		<script type="text/javascript" src="/resources/js/maps.js"></script>
 		<script type="text/javascript" src="/resources/js/app.js"></script>
-		
-		<!-- jquery -->
-		<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-		<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
-		<!-- templete.jsp -->
-		<!-- <script type="text/javascript" src="/resources/js/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="/resources/styles/bootstrap4/popper.js"></script>
-		<script type="text/javascript" src="/resources/styles/bootstrap4/bootstrap.min.js"></script>
-		<script type="text/javascript" src="/resources/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-		<script type="text/javascript" src="/resources/plugins/easing/easing.js"></script>
-		<script type="text/javascript" src="/resources/plugins/parallax-js-master/parallax.min.js"></script>
-		<script type="text/javascript" src="/resources/js/custom.js"></script>	 -->	   		
+		 		
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		<script type="text/javascript" src="/resources/js/ie10-viewport-bug-workaround.js"></script>
 		<!-- Custom javascript -->

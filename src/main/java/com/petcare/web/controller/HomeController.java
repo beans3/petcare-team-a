@@ -81,9 +81,12 @@ public class HomeController {
 	return "redirect:/index";
 	}
 	
+	/**
+	 * 회원가입 페이지로 이동
+	 * */
 	@GetMapping("/select")
 	public String registerS() {
-		return "user/registerSelect";
+		return "registerSelect";
 
 	}
 }

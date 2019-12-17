@@ -85,4 +85,16 @@
 		from appointment a join pet p join user u
 		where a.pet_no = p.pet_no and a.user_id = u.user_id and appt_no > 0
     </select>
+
+	<select id="selectID" resultType="String">
+		SELECT user_id
+		FROM USER
+		WHERE user_id = #{userId}
+	</select>
+	
+	<select id="selectEmail" resultType="String">
+		SELECT user_email
+		FROM USER
+		WHERE user_email = #{userEmail}
+	</select>    
 </mapper>
