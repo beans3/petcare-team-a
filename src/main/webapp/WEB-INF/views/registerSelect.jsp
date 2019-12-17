@@ -53,6 +53,7 @@
 	</div>
 </section> --%>
 <script type="text/javascript">
+// jquery ui 라이브러리 이용해서 tab 메뉴 기능 구현
 $(function() {
 	// tab operation
 	$('#myTabs').tabs();

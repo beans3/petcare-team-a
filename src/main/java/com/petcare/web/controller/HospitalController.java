@@ -117,6 +117,9 @@ public class HospitalController {
 		return "hospital/list";
 	}
 	
+	/**
+	 * 회원가입 페이지(병원)로 이동
+	 * */
 	@GetMapping("/register")
 	public String hospital(Model model) {
 		model.addAttribute("hospital", new Hospital());
@@ -126,7 +129,10 @@ public class HospitalController {
 	/*
 	 * public String register(@ModelAttribute("hospital") @Valid Hospital hospital,
 	 * BindingResult result, HttpServletRequest request)
-	 */ 
+	 */
+	/**
+	 * 회원가입 기능 처리
+	 * */
 	@PostMapping("/Join")
 	public String register(Hospital hospital, HttpServletRequest request) 
 	{
@@ -144,8 +150,10 @@ public class HospitalController {
 		
 		hospitalService.register(hospital);
 		
+		// form에 있는 checkbox에서 코드들의 값을 받아온다.
 		String[] list = request.getParameterValues("cCode");
 		
+		// 반복문을 이용하여 codename객체에 값을 넣어주고 메서드를 이용해서 디비에 insert
 		if(list != null) {
 			for(int i = 0; i < list.length; i++) {
 				Codename code = new Codename();
@@ -159,12 +167,16 @@ public class HospitalController {
 		return "redirect:/index";
 	}
 	
+	/**
+	 * 회원(병원) 아이디 중복 체크
+	 * */	
 	@PostMapping("/check_id")
 	@ResponseBody
 	public void selectID(@RequestParam("hospitalId") String id, HttpServletResponse response) throws IOException
 	{
 		PrintWriter out = response.getWriter();
 		int count = hospitalService.selectID(id);
+		//아이디가 존재하지 않으면 true 반환
 		if(count == 0) {
 			out.print(true);
 		}else if(count == 1) {
@@ -172,12 +184,16 @@ public class HospitalController {
 		}
 	}
 	
+	/**
+	 * 회원(병원) 이메일 중복 체크
+	 * */
 	@PostMapping("/check_email")
 	@ResponseBody
 	public void selectEmail(@RequestParam("hospitalEmail") String email, HttpServletResponse response) throws IOException
 	{
 		PrintWriter out = response.getWriter();
 		int count = hospitalService.selectEmail(email);
+		//이메일이 존재하지 않으면 true 반환
 		if(count == 0) {
 			out.print(true);
 		}else if(count == 1) {
@@ -185,13 +201,18 @@ public class HospitalController {
 		}
 	}
 	
+	/**
+	 * 회원수정 페이지(병원)로 이동
+	 * */	
 	@GetMapping("/modifyForm")
 	public String modify(@ModelAttribute("hospital") Hospital hospital, HttpServletRequest request, Model model) {
+		//세션정보(병원) 가져오기
 		HttpSession session = request.getSession();
 		hospital = (Hospital)session.getAttribute("hospital");
-		
+		//세션에 저장된 유저 아이디를 갖고와서 현재 페이지에 유저 아이디 set
 		String hospitalId = hospital.getHospitalId(); 
-				
+		
+		//리스트맵에 코드정보 담기
 		List<Map<String, String>> codeList = hospitalService.getCharacter(hospitalId);
 		System.out.println(codeList);
 		
@@ -206,6 +227,9 @@ public class HospitalController {
 	 * public String update(@ModelAttribute("hospital") @Valid Hospital hospital,
 	 * BindingResult result, HttpServletRequest request)
 	 */
+	/**
+	 * 회원수정(일반유저)기능 처리
+	 * */	
 	@PostMapping("/modify")
 	public String update(Hospital hospital, HttpServletRequest request)
 	{
@@ -221,8 +245,10 @@ public class HospitalController {
 		 */
 		hospitalService.modify(hospital);
 		
+		// form에 있는 checkbox에서 코드들의 값을 받아온다.
 		String[] list = request.getParameterValues("cCode");
 		
+		// 반복문을 이용하여 codename객체에 값을 넣어주고 메서드를 이용해서 디비에 insert
 		if(list != null) {
 			for(int i = 0; i < list.length; i++) {
 				Codename code = new Codename();

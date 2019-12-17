@@ -11,12 +11,15 @@
 <link href='<spring:url value="/resources/css/custom.css"/>' rel="stylesheet" />
 <script src='<spring:url value="/resources/js/hospital/update.js"/>'></script>
 <script type="text/javascript">
+//checkbox값 불려오기 위한 함수
 window.onload = function() {
+	//c:forEach문을 이용해서 list배열에 code정보 저장
 	var list1 = new Array();
 	<c:forEach items="${code}" var="code">
 		list1.push("${code.cCode}");
 		list1.push("${code.cName}");
 	</c:forEach>
+	//for문을 이용해서 checked 표시
 	for(var i = 0; i < list1.length;i++){
 		if(list1[i] == 1){
 			document.getElementById("cCode1").checked = true;

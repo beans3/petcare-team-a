@@ -107,6 +107,8 @@ public class HospitalServiceImpl implements HospitalService {
 	@Transactional
 	@Override
 	public void modify(Hospital hospital) {
+		//어떤 특성이 다시 업데이트 되고 지워졌는지 확인 어렵기 때문에
+		//특성코드를 지우고 다시 업데이트 하는 식으로 처리
 		hospitalMapper.deleteCode(hospital.getHospitalId());
 		
 		hospitalMapper.update(hospital);

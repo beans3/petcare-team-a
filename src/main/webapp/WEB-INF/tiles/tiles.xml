@@ -12,6 +12,7 @@
        	<put-attribute name="footer" value="/WEB-INF/views/includes/footer.jsp"/>
    </definition>
 
+   <!-- tiles가 적용되지 않은 회원가입 페이지 -->
    <definition name="join" template="/WEB-INF/views/includes/empty.jsp">
    	   	<put-attribute name="head" value="" />
        	<put-attribute name="header" value=""/>
