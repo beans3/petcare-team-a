@@ -17,8 +17,8 @@
 <body>
 <div class="container">
 	<c:choose>
-			<c:when test="${sessionScope.user.userAuthority == 'ADMIN'}">
-					<a class="btn btn-default" href="faqForm">FAQ Write</a>
+			<c:when test="${user.userAuthority == 'ADMIN'}">
+					<a class="btn btn-default"E href="faqForm">FAQ Write</a>
 			</c:when>
 		    <c:otherwise>
 		     		<div hidden></div>
@@ -29,7 +29,7 @@
 	    	<div hidden>${faq.faqNo}</div>
 	        <strong> Q </strong> ${faq.faqTitle} | ${faq.faqRegdate}
 			<c:choose>
-				<c:when test="${sessionScope.user.userAuthority == 'ADMIN'}">
+				<c:when test="${user.userAuthority == 'ADMIN'}">
 					<a class="btn btn-default" href="faqModify?faqNo=${faq.faqNo}">Edit</a>
 					<a class="btn btn-default" href="delete?faqNo=${faq.faqNo}">X</a>
 				</c:when>
@@ -82,17 +82,17 @@ $(document).ready(function(){
     font-size: large;
 }
 .notice-success {
-    border-color: #80D651;
+    border-color: #53dff8;
 }
 .notice-success>strong {
-    color: #80D651;
+    color: #53dff8;
     font-size: 30px;
 }
 .notice-info {
     border-color: #45ABCD;
 }
 .notice-info>strong {
-    color: #45ABCD;
+    color: #53dff8;
 }
 .notice-warning {
     border-color: #FEAF20;

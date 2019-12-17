@@ -65,9 +65,11 @@ public class FaqController {
 	@RequestMapping("/faqModify")
 	public String faqModify(@ModelAttribute("faq") FaqVO faq, HttpServletRequest request, Model model) {
 		
+		// 글 번호 int 값으로 가져와서 faqNo에 저장
 		int faqNo = Integer.parseInt(request.getParameter("faqNo"));
 		faq.setFaqNo(faqNo);
 		
+		// 저장한 faqNo로 게시글 select한 뒤 model 객체에 추가
 		FaqVO faqModify = faqService.modifyView(faq);
 		model.addAttribute("faqModify", faqModify);
 		

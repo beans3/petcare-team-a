@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +36,10 @@ public class HospitalController {
 	private HospitalService hospitalService;
 	@Autowired
 	private FavoriteService favoriteService;
+	
+	// ServletConfig에서 생성한 bean
+	//@Autowired
+	//private BCryptPasswordEncoder passwordEncoder;
 	
 	Map<String, Object> codename = new HashMap<String, Object>();
 	List<String> cn = new ArrayList<String>();
@@ -116,6 +121,10 @@ public class HospitalController {
 	
 	@PostMapping("/Join")
 	public String register(Hospital hospital, HttpServletRequest request) {
+		
+		// hospital의 비밀번호를 암호화된 비밀번호로 저장
+		// String encPassword = passwordEncoder.encode(hospital.getHospitalPw());
+		// hospital.setHospitalPw(encPassword);
 		
 		hospitalService.register(hospital);
 		

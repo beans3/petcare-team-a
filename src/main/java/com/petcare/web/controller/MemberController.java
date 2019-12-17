@@ -31,6 +31,10 @@ public class MemberController {
 	
     @Autowired
     private MemberValidator memberValidator;
+    
+    // ServletConfig에서 생성한 bean
+ 	// @Autowired
+ 	// private BCryptPasswordEncoder passwordEncoder;
 	  
     @InitBinder
     private void initBinder(WebDataBinder webDataBinder) {
@@ -45,6 +49,11 @@ public class MemberController {
 	
 	@PostMapping("/user")
 	public String register(@ModelAttribute("user") @Valid UserVO user, BindingResult result) {
+		
+		// user의 비밀번호를 암호화된 비밀번호로 저장
+		// String encPassword = passwordEncoder.encode(user.getUserPw());
+		// user.setUserPw(encPassword);
+		
 		String msg = null;
 		
 		if(result.hasErrors()) {

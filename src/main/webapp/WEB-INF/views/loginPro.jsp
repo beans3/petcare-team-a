@@ -9,6 +9,7 @@
 <body>
 <script>
 	alert("아이디와 비밀번호를 확인하세요.")
+	/* 현재창의 url 변경 */
 	self.location="/login";
 </script>
 </body>

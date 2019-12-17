@@ -27,10 +27,11 @@
 	background: #fff;
 	margin: 0 auto;
 	border: 2px solid #fff;
-	box-shadow: 0 15px 40px rgba(0, 0, 0, .5);
+	/* box-shadow: 0 15px 40px rgba(0, 0, 0, .5); */
 }
 
 .left {
+	padding-top: 20px;
 	margin : 0 auto;
 	width: 100%;
 	/* height: 56vh; */
@@ -60,13 +61,13 @@ p {
 	margin: 0;
 	padding: 0;
 	font-weight: bold;
-	color: salmon;
+	color: #0095ff;
 }
 
 input {
 	margin-bottom: 20px;
 	border: none;
-	border-bottom: 2px solid salmon;
+	border-bottom: 2px solid #0095ff;
 	outline: none;
 	height: 40px;
 	width: 100%;
@@ -82,14 +83,14 @@ input:focus {
 	outline: none;
 	height: 40px;
 	color: white;
-	background: #262626;
+	background: #0095ff;
 	cursor: pointer;
 	margin-bottom: 20px;
 	font-size: 14px;
 }
 
 .formBox button:hover {
-	background: salmon;
+	background: #000;
 }
 
 .formBox form {
