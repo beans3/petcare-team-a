@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>병원 회원가입</title>
 <link href='<spring:url value="/resources/css/custom.css"/>' rel="stylesheet" />
-<script src='<spring:url value="/resources/js/user/Join.js"/>'></script>
+<script src='<spring:url value="/resources/js/hospital/Join.js"/>'></script>
 </head>
 <body>
 <div class="row text-center" style="width: 100%">
@@ -21,10 +21,11 @@
   </div>
 </div>
 
-<div class="container">
-	<div class="col-lg-2"></div>
-	<div class="col-lg-10">
-		<div class="jumbotron" style="padding-top: 20px;">
+<div class="container-fluid text-center m-t-30 m-b-20">
+	<div class="row content">
+		<div class="col-sm-2 sidenav">
+		</div>
+		<div class="col-sm-8 text-left" style="height:100%;">
 			<form id="hospitalJoin" action="/hospital/Join" method="post">
 				<div class="form-group">
 					<label>아이디</label>
@@ -81,7 +82,7 @@
 				</div>
 				
 				<div class="form-group">
-					<p style="font-weight: bold;">특성을 골라주세요.</p>
+					<p><label style="font-weight: bold;">특성을 골라주세요.</label></p>
 					<div class="form-check form-check-inline col-md-3">
 						<label class="form-check-label" for="cCode1">
 							<input type="checkbox" class="form-check-input" name="cCode" id="cCode1" value="1">야간진료
@@ -103,7 +104,19 @@
 						</label>
 					</div>
 				</div>
-
+				
+				<div class="from-group">
+					<label style="font-weight: bold;">취급 동물</label> 
+					<select class="form-control" name="hospitalSpecies">
+						<option value="개">개</option>
+						<option value="고양이">고양이</option>
+						<option value="말">말</option>
+						<option value="새">새</option>
+						<option value="햄스터">햄스터</option>
+						<option value="기니피그">기니피그</option>
+					</select> 
+				</div>
+				
 				<div class="form-group">
 					<label style="font-weight: bold;">세부사항</label>
 					<textarea class="form-control" placeholder="병원에 대해서 간단한 소개를 적어주세요." name="hospitalIntro" id="hospitalIntro" maxlength="2048" style="height: 350px;" ></textarea>
@@ -113,9 +126,10 @@
 					<input type="submit" class="btn btn-primary" value="회원가입">
 				</div>														
 			</form>
+	    <div class="col-sm-2 sidenav">
+	    </div>
 		</div>
 	</div>
-	<div class="col-lg-2"></div>
 </div>
 <!--validate JQuery  -->
 <script src='<spring:url value="/resources/js/jquery.validate.js"/>'></script>

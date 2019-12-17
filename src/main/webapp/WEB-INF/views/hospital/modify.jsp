@@ -9,14 +9,17 @@
 <meta charset="UTF-8">
 <title>병원 정보수정</title>
 <link href='<spring:url value="/resources/css/custom.css"/>' rel="stylesheet" />
-<script src='<spring:url value="/resources/js/user/update.js"/>'></script>
+<script src='<spring:url value="/resources/js/hospital/update.js"/>'></script>
 <script type="text/javascript">
+//checkbox값 불려오기 위한 함수
 window.onload = function() {
+	//c:forEach문을 이용해서 list배열에 code정보 저장
 	var list1 = new Array();
 	<c:forEach items="${code}" var="code">
 		list1.push("${code.cCode}");
 		list1.push("${code.cName}");
 	</c:forEach>
+	//for문을 이용해서 checked 표시
 	for(var i = 0; i < list1.length;i++){
 		if(list1[i] == 1){
 			document.getElementById("cCode1").checked = true;
@@ -39,11 +42,12 @@ window.onload = function() {
 		</div>
 	</div>
 </div>
-<div class="container">
-	<div class="col-lg-2"></div>
-	<div class="col-lg-10">
-		<div class="jumbotron" style="padding-top: 20px;">
-			<form action="/hospital/modify" method="post">
+<div class="container-fluid text-center m-t-30 m-b-20">
+	<div class="row content">
+		<div class="col-sm-2 sidenav">
+		</div>
+		<div class="col-sm-8 text-left" style="height:100%;">
+			<form id="hospitalModify" action="/hospital/modify" method="post">
 				<div class="form-group">
 					<label>아이디</label>
 					<input type="text" class="form-control" readonly="readonly" id="hospitalId" name="hospitalId" value="${list.hospitalId}">
@@ -103,7 +107,7 @@ window.onload = function() {
 				</div> --%>
 				
 				<div class="form-group">
-					<p style="font-weight: bold;">특성을 골라주세요.</p>
+					<p><label style="font-weight: bold;">특성을 골라주세요.</label></p>
 					<div class="form-check form-check-inline col-md-3">
 						<label class="form-check-label" for="cCode1">
 							<input type="checkbox" class="form-check-input" name="cCode" id="cCode1" value="1">야간진료
@@ -125,7 +129,19 @@ window.onload = function() {
 						</label>
 					</div>
 				</div>
-
+				
+				<div class="from-group">
+					<label style="font-weight: bold;">취급 동물</label> 
+					<select class="form-control" name="hospitalSpecies">
+						<option value="개" <c:if test="${list.hospitalSpecies eq '개'}">selected</c:if>>개</option>
+						<option value="고양이" <c:if test="${list.hospitalSpecies eq '고양이'}">selected</c:if>>고양이</option>
+						<option value="말" <c:if test="${list.hospitalSpecies eq '말'}">selected</c:if>>말</option>
+						<option value="새" <c:if test="${list.hospitalSpecies eq '새'}">selected</c:if>>새</option>
+						<option value="햄스터" <c:if test="${list.hospitalSpecies eq '햄스터'}">selected</c:if>>햄스터</option>
+						<option value="기니피그" <c:if test="${list.hospitalSpecies eq '기니피그'}">selected</c:if>>기니피그</option>
+					</select> 
+				</div>
+				
 				<div class="form-group">
 					<label style="font-weight: bold;">세부사항</label>
 					<textarea class="form-control" maxlength="2048" style="height: 350px;" name="hospitalIntro" id="hospitalIntro">${list.hospitalIntro}</textarea>
@@ -135,9 +151,10 @@ window.onload = function() {
 					<input type="submit" class="btn btn-primary" value="수정">
 				</div>														
 			</form>
+	    <div class="col-sm-2 sidenav">
+	    </div>
 		</div>
 	</div>
-	<div class="col-lg-2"></div>
 </div>
 <!--validate JQuery  -->
 <script src='<spring:url value="/resources/js/jquery.validate.js"/>'></script>

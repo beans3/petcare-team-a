@@ -42,8 +42,6 @@ public class MemberValidator implements Validator {
 		if(!newUser.getUserPw().equals(newUser.getUserPw2())) {
 			errors.rejectValue("userPw", "misMatchUserPw", "비밀번호가 서로 일치하지 않습니다.");
 		}
-		
-		
 	}
 
 }

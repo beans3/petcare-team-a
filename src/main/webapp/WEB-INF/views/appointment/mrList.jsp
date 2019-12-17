@@ -16,35 +16,29 @@
 </head>
 <body>
 
-<form id="actionForm" action="/appointment/list" method="get">
-	<input type='hidden' name='pageNum' value = '${pageMaker.cri.pageNum}'>
-	<input type='hidden' name='amount' value = '${pageMaker.cri.amount}'>
-	<input type='hidden' name='searchType' value = '${pageMaker.cri.searchType}'>
-	<input type='hidden' name='keyword' value = '${pageMaker.cri.keyword}'>
-</form>
-
+		
 <div class="screen">
 	<div class="panel panel-default">
 		<div class="panel-heading">진료기록</div>
 	</div>
-	
-
-	<div>
-		<table class="table table-striped table-bordered table-hover">
+		<table class="table table-striped table-bordered table-hover" style="text-align: center;">
 			<tr>
-				<th>동물이름</th>
-				<th>진료날짜</th>
-				<th>진료내용(일부표기)</th>
+				<th bgcolor="#585858">예약일련번호</th>
+				<th bgcolor="#585858">동물번호</th>
+				<th bgcolor="#585858">진료날짜</th>
+				<th bgcolor="#585858">진료내용</th>
 			</tr>
-			
-	
+			<c:forEach items="${medicalRecords}" var="mrs">
 			<tr>
-				
+				<td width="10%" >${mrs.apptNo}</td>
+				<td width="10%">${mrs.petNo}</td>
+				<td width="20%"><fmt:parseDate value="${mrs.treatRegdate}" var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
+				<fmt:formatDate value="${dateFmt}"  pattern="yyyy년 MM월 dd일 hh시 mm분"/></td>
+				<td width="60%" style="text-align: left;">${mrs.treatContent}</td>
 			</tr>
+			</c:forEach>
 		</table>
-		
-	</div>
 </div>
-
+		
 </body>
 </html>

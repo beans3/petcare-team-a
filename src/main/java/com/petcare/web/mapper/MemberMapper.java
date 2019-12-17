@@ -14,8 +14,10 @@ public interface MemberMapper {
 	public UserVO getUser(String userId); //아이디 중복체크(Spring Validator)
 	public UserVO getEmail(String userEmail); //이메일 중복체크(Spring Validator)
 	public UserVO loginPro(UserVO user); 	//로그인
-	public UserVO getList(UserVO user);		//개인정보수정
+	public UserVO getList(UserVO user);		//개인정보가져오기
 	public void update(UserVO user); //수정
+	public String selectID(String id); //아이디 중복체크(Juery Validator)
+	public String selectEmail(String email); //이메일 중복체크(Juery Validator)
 	
 	public List<AppointmentVo> getAppointmentList(@Param("cri") Criteria cri, @Param("userId") String userId);
 	

@@ -16,7 +16,9 @@ public interface HospitalMapper {
 	public void codeInsert (Codename codename);	//특성 삽입
 	public String selectID(String id); //아이디 중복체크(Juery Validator)
 	public String selectEmail(String email); //이메일 중복체크(Juery Validator)
-	public Hospital loginPro2(Hospital hospital);	//병원회원 로그인
+	public Hospital getId(String hospitalId); //아이디 중복체크(Spring Validator)
+	public Hospital getEmail(String hospitalEmail); //이메일 중복체크(Spring Validator)
+	public Hospital loginPro2(Hospital hospitaluser);	//병원회원 로그인
 	public List<Map<String, String>> getCharacter(String hospitalId); 	//특성 가져오기
 	public Hospital getList(String hospitalId);		//병원정보 가져오기
 	public void deleteCode(String hospitalId);			//코드삭제!!

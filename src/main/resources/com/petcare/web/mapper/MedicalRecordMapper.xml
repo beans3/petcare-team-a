@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.petcare.web.mapper.MedicalRecordMapper">
+	<!-- 진료기록 입력 -->
     <insert id="insertMedicalRc" parameterType="MedicalRecordVO" >
     	insert into treatment(
 			pet_no
 			,hospital_id
 			,treat_content
+			,appt_no
 			) values(
 			#{petNo}
 			,#{hospitalId}
 			,#{treatContent}
+			,#{apptNo}
 		)
     </insert>
-
+	<!-- 예약정보 갖고오기 -->
+	<select id="getApptInfo" parameterType="int" resultType="com.petcare.web.domain.AppointmentVo">
+		select * from appointment
+		where appt_no = #{apptNo}
+	</select>
+	<!-- 진료기록 리스트 갖고오기 -->
+	<select id="getRcList" parameterType="String" resultType="MedicalRecordVO">
+		select * from treatment
+		where hospital_id = #{hospitalId}
+		order by treat_no desc
+	</select>
+	<!-- 수정 -->
+	<update id="updateMedicalRc" parameterType="int">
+		update appointment
+		set appt_status = 2
+		where appt_no = #{apptNo}
+	</update>
+	<!-- 페이지 총 갯수 -->
+	<select id="getTotalCount" resultType="int">
+    	select count(1)
+		from treatment 
+    </select>
 </mapper>

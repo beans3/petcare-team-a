@@ -66,7 +66,7 @@
 										, #{hospitalEmail}
 										, #{hospitalOpen}
 										, #{hospitalClose}
-										, 'HOSPITAL'
+										, #{hospitalSpecies}
 										, #{hospitalIntro, jdbcType=VARCHAR})		
 	</insert>
 	
@@ -120,5 +120,16 @@
 			, hospital_intro = #{hospitalIntro}
 		WHERE hospital_id = #{hospitalId}
 	</update>
-			
+
+	<select id="getId" resultType="Hospital">
+		SELECT *
+		FROM HOSPITAL
+		WHERE hospital_id = #{hospitalId}
+	</select>
+	
+	<select id="getEmail" resultType="Hospital">
+		SELECT *
+		FROM HOSPITAL
+		WHERE hospital_email = #{hospitalEmail}
+	</select>			
 </mapper>
