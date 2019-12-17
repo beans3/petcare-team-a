@@ -81,7 +81,7 @@
 						              		<c:if test="${not empty sessionScope.hospital}">
 							                     <li><a href="/hospital/modifyForm" >개인정보 수정</a></li>
 							                      <li><a href="/appointment/list" >예약내역 목록</a></li>
-							                      <li><a href="/mr/list" >진료기록</a></li>
+							                      <li><a href="/mr/mrList" >진료기록</a></li>
 						              		</c:if>            
 										</ul>
 									</nav>
@@ -97,9 +97,9 @@
 <br><br><br><br><br><br><br><br><br>
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
-<script>
+<!-- <script>
 	$('.dropdown-toggle').dropdown();
 </script>
-
+ -->
 <!-- Top header end -->
 

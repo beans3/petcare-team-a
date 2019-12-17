@@ -52,7 +52,8 @@
 			<button type="submit" data-oper='remove' class="btn btn-default">삭제</button>
 			<button type="submit" data-oper='list' class="btn btn-default">목록</button> -->
 			<button type="submit" data-oper='modify' class="btn btn-primary">수정</button>
-			<button type="submit" data-oper='remove' class="btn btn-danger">삭제</button>
+			<!-- 2019.12.15 삭제기능 없앰 -->
+			<!-- <button type="submit" data-oper='remove' class="btn btn-danger">삭제</button> -->
 			<button type="submit" data-oper='list' class="btn btn-dark">목록</button>
 			<button type="submit" data-oper='medicalRecord' class="btn btn-warning">진료기록 작성</button>
 		<div>
