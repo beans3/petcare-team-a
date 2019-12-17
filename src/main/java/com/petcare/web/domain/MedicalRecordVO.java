@@ -19,4 +19,6 @@ public class MedicalRecordVO {
 	private String treatContent;
 	//진료일자
 	private String treatRegdate;
+	//예약번호
+	private int apptNo;
 }

@@ -40,6 +40,7 @@
 	<div>
 		<table class="table table-striped table-bordered table-hover">
 			<tr>
+				<th>예약일련번호</th>
 				<th>예약날짜</th>
 				<th>예약시간</th>
 				<th>동물이름</th>
@@ -50,16 +51,28 @@
 			
 			<c:forEach items="${apptLists}" var="apptList">
 				<tr>
-					<td><fmt:formatDate value="${apptList.apptDate}" pattern="yyyy/MM/dd"/></td>
+					<td>${apptList.apptNo}</td>
+					<td><fmt:formatDate value="${apptList.apptDate}" pattern="yyyy-MM-dd"/></td>
 					<td><fmt:formatDate value="${apptList.apptTime}" pattern="HH:mm"/></td>
 					<td>${apptList.petName}</td>
 					<td>${apptList.userId}</td>
 					<td>${apptList.userPhone}</td>
-					<c:if test="${apptList.apptStatus == 0}">
+					<!-- 현재 날짜, 예약날짜 비교하기 위해 생성 -->
+					<jsp:useBean id="now" class="java.util.Date"/>
+					<fmt:formatDate value="${apptList.apptDate}" pattern="yyyyMMdd" var="apptDay"/>
+					<fmt:formatDate value="${now}" pattern="yyyyMMdd" var="today" />  
+					<!-- 오늘날짜보다 큰 것만 활성화, 나머지는 비활성화-->
+					<c:if test="${(apptList.apptStatus == 0) and (today<=apptDay)}">
 						<td><a class='move' href='<c:out value="${apptList.apptNo}"/>'>예약완료</a></td>
 					</c:if>
+					<c:if test="${(apptList.apptStatus == 0) and (today>apptDay)}">
+						<td bgcolor="#F78181" style="color: black;">날짜경과</td>
+					</c:if>
 					<c:if test="${apptList.apptStatus == 1}">
-						<td><a class='move' href='<c:out value="${apptList.apptNo}"/>'>예약취소</a></td>
+						<td bgcolor="#F78181" style="color: black;">예약취소</td>
+					</c:if>
+					<c:if test="${apptList.apptStatus == 2}">
+						<td bgcolor="#333333" style="color: white;">진료완료</td>
 					</c:if>
 				</tr>	
 			</c:forEach>
@@ -79,7 +92,7 @@
 				
 				<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
 					<li class="paginate_button ${pageMaker.cri.pageNum == num ? "active":""}">
-						<a href="${num}">${num}</a></li>
+						<a href="${num}">${num}&nbsp;</a></li>
 				</c:forEach>
 				
 				<c:if test="${pageMaker.next}">
