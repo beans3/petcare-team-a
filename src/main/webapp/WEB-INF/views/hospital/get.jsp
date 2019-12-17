@@ -8,14 +8,15 @@
     <title>병원 상세</title>
 
     <!-- Bootstrap Core CSS -->
-<!--      <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+     <link href="/resources/vendor/bootstrap/css/bootstrap3.3.2.min.css" rel="stylesheet">
 <!--    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
 
     <!-- Custom CSS -->
-    <link href="/resources/dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- <link href="/resources/dist/css/sb-admin-2.css" rel="stylesheet">
     
-    <link rel="stylesheet" type="text/css" href="/resources/css/star.css">
-    
+    <link rel="stylesheet" type="text/css" href="/resources/css/star.css"> -->
+
+
     <style>
     	#red_rating{color:#CC0000; margin-left:7px;}
     	#gray_rating{color:#b4b4b4;}
@@ -142,6 +143,8 @@ $(document).ready(function(){
 	
 	showList(1);
 
+	
+	
 	//리뷰 리스트 출력
 	function showList(page) {
 		
@@ -273,13 +276,15 @@ $(document).ready(function(){
 	//리뷰작성 버튼
 	$("#addReviewBtn").on("click", function(e){
 	        
+		
 	 	modal.find("output>b").text(0);
 	 	$("input:radio[name='reviewRating']").prop('checked', false);
 		modal.find("textarea").val("");	
 	 	modal.find("button[id !='modalCloseBtn']").hide();  
 	    modalRegisterBtn.show();
-	        
+	    console.log('모달리뷰작성클릭');
 	    $(".modal").modal("show");
+	    /* $('#myModal').modal('show'); */
 	        
 	});
 	
@@ -327,7 +332,13 @@ $(document).ready(function(){
 		 }
 	});	
 });
+
 </script>
+
 <script src="/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
 </body>
 </html>

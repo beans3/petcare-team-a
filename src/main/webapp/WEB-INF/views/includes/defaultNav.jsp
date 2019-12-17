@@ -17,7 +17,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
  
- 	<div class="menu trans_500">
+ <!-- 	<div class="menu trans_500">
 		<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<form action="#" class="menu_search_form">
@@ -42,8 +42,8 @@
 				<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
 			</ul>
 		</div>
-	</div>
-            <div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
+	</div> -->
+<%--             <div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a href="/hospital/list" tabindex="0" data-submenu="" aria-expanded="false">
@@ -91,7 +91,7 @@
               		</c:if>                   
                  </ul>     
                  
-            </div>
+            </div> --%>
 
             <!-- /.navbar-collapse -->
             <!-- /.container -->

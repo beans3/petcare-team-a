@@ -17,7 +17,7 @@
 		select a.appt_no, a.pet_no, a.user_id, a.hospital_id, a.appt_date, a.appt_time, a.appt_note, a.appt_status, p.pet_name, u.user_phone
 		from appointment a join pet p join user u
 		where a.pet_no = p.pet_no and a.user_id = u.user_id and a.hospital_Id = #{hospitalId}
-		order by a.appt_date, a.appt_time asc
+		order by a.appt_date desc, a.appt_time desc
 		limit #{cri.pageStart}, #{cri.amount}
 	</select>
 	
