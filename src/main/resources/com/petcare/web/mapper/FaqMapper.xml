@@ -12,7 +12,7 @@
 	</select>
 	<insert id="insert">
 		insert into faq (faq_no, faq_title, faq_content, user_id, faq_regdate)
-		VALUES ((select *from (select max(faq_no)+1 from faq) next), #{faqTitle}, #{faqContent}, #{userId}, now())
+		VALUES ((select *from (select max(faq_no) + 1 from faq) next), #{faqTitle}, #{faqContent}, #{userId}, now())
 	</insert>
 	<update id="update">
 		update faq set faq_title = #{faqTitle}, faq_content = #{faqContent}, faq_regdate = now() where faq_no = #{faqNo}

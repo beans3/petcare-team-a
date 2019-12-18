@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -45,6 +46,10 @@ public class HospitalController {
 	 * @Autowired private HospitalValidator hospitalValidator;
 	 */
 	
+	// ServletConfig에서 생성한 bean
+	//@Autowired
+	//private BCryptPasswordEncoder passwordEncoder;
+	
 	Map<String, Object> codename = new HashMap<String, Object>();
 	List<String> cn = new ArrayList<String>();
 	
@@ -56,6 +61,7 @@ public class HospitalController {
 	//병원 정보
 	@GetMapping("/get")
 	public void get(HttpSession session, String userId, String hospitalId, Model model) throws IOException {
+		
 		if(session.getAttribute("user") != null) {
 		UserVO user = (UserVO) session.getAttribute("user");
 		userId = user.getUserId();
@@ -87,15 +93,19 @@ public class HospitalController {
 	//병원 검색
 	@GetMapping("/search")
 	public String hospitalSearch(Model model, String choice, String searchValue, String searchWord) {
+		// 이름인지 주소인지?
 		System.out.println(searchValue);
+		//searchWord를 받아와서 만들어줌
 		System.out.println(searchWord);
 		System.out.println(choice);
+		
 		List<Hospital> search = new ArrayList<Hospital>();
 		if(searchValue.equals("name")) {
 			search = hospitalService.searchName(searchWord);
 			for(int i=0; i<search.size(); i++){
 				Map<String, String> map = (Map)search.get(i);
 				String hid = (String)map.get("hospital_id");
+				//병원의 코드로 빼옴
 				cn = hospitalService.codename(hid);
 				codename.put(hid, cn);
 				System.out.println("1번"+search);
@@ -147,6 +157,10 @@ public class HospitalController {
 		 * 
 		 * return "join/hospital"; }
 		 */
+		
+		// hospital의 비밀번호를 암호화된 비밀번호로 저장
+		// String encPassword = passwordEncoder.encode(hospital.getHospitalPw());
+		// hospital.setHospitalPw(encPassword);
 		
 		hospitalService.register(hospital);
 		

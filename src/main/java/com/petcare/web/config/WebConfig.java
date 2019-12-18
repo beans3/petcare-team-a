@@ -9,7 +9,7 @@ import javax.servlet.Filter;
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{RootConfig.class};
+        return new Class[]{RootConfig.class, /*WebSecurityConfig.class*/ };
     }
 
     @Override
@@ -27,6 +27,5 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
         CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter("UTF-8", true);
         return new Filter[]{ encodingFilter, new HiddenHttpMethodFilter()};
     }
-
 
 }

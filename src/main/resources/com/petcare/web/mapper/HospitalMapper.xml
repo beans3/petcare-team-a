@@ -93,7 +93,7 @@
 		WHERE hospital_id = #{hospitalId}
 		AND hospital_pw = #{hospitalPw}
 	</select>
-	
+		
 	<select id="getCharacter" resultMap="selectCodeList">
 		SELECT hc.c_code AS c_code, c.c_name AS c_name 
 		FROM H_CHARACTER hc, CODENAME c

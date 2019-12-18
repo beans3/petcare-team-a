@@ -27,6 +27,7 @@ public class FavoriteController {
 	@Transactional
 	@GetMapping("/register")
 	public String favoriteInsert(HttpSession session, FavoriteVO favorite, Model model) {
+		//session에서 유저 아이디 받아옴
 		UserVO user = (UserVO) session.getAttribute("user");
 		user.getUserId();
 		favorite.getHospitalId();
@@ -34,6 +35,7 @@ public class FavoriteController {
 		favoriteService.register(favorite);
 		List<FavoriteVO> hospitals = favoriteService.selectForUser(user.getUserId());
 		model.addAttribute("favorites", hospitals);
+		//즐겨찾기 목록
 		return "favorite/favorite";
 	}
 	
@@ -50,6 +52,7 @@ public class FavoriteController {
 	}
 	
 	//환자용 즐겨찾기
+	//내가 즐겨찾기한 병원
 	@GetMapping("/foruser")
 	public String favoriteForUser(HttpSession session, Model model){
 		UserVO user = (UserVO) session.getAttribute("user");
@@ -60,6 +63,7 @@ public class FavoriteController {
 	}
 
 	//병원용 즐겨찾기
+	//병원 입장에서 즐겨찾기한 유저 찾음
 	@GetMapping("/forhospital")
 	public String favoriteForHospital(HttpSession session, Model model){
 		Hospital hospital = (Hospital) session.getAttribute("hospital");

@@ -13,7 +13,7 @@
 	<div style="clear: both; width: 60%; margin: auto;">
 			<div hidden>
 				<label>id</label>
-				<input type="text" class="form-control" name="userId" value="${sessionScope.user.userId}" readonly/>
+				<input type="text" class="form-control" name="userId" value="${user.userId}" readonly/>
 			</div>
 			<div>
 				<label>title</label>

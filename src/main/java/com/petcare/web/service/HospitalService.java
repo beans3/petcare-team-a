@@ -30,11 +30,12 @@ public interface HospitalService {
 	//이메일중복체크(Juery Validator)
 	public int selectEmail(String email);
 	//병원회원 로그인
-	public Hospital loginPro2(Hospital hospitaluser);
+	public Hospital loginPro2(Hospital hospital);
 	//병원개인정보
 	public Hospital getList(String hospitalId);
 	//특성 가져오기
 	public List<Map<String, String>> getCharacter(String hospitalId);
 	//병원정보수정하기
 	public void modify(Hospital hospital);
+	
 }

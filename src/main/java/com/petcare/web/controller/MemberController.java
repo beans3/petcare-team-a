@@ -33,11 +33,15 @@ public class MemberController {
 
 	@Autowired
 	private MemberService MemberService;
-	
+
+    // ServletConfig에서 생성한 bean
+ 	// @Autowired
+ 	// private BCryptPasswordEncoder passwordEncoder;
+
 	/*
 	 * @Autowired private MemberValidator memberValidator;
 	 */
-	  
+
 	/*
 	 * @InitBinder private void initBinder(WebDataBinder webDataBinder) {
 	 * webDataBinder.setValidator(memberValidator); }
@@ -50,7 +54,7 @@ public class MemberController {
 		model.addAttribute("user", new UserVO());
 		return "join/user";
 	}
-	
+
 	/*
 	 * public String register(@ModelAttribute("user") @Valid UserVO user,
 	 * BindingResult result) {
@@ -61,7 +65,6 @@ public class MemberController {
 	@PostMapping("/join")
 	public String register(@ModelAttribute("user") UserVO user) {
 		//String msg = null;
-		
 		/*
 		 * if(result.hasErrors()) {
 		 * 
@@ -70,6 +73,11 @@ public class MemberController {
 		 * 
 		 * return "registerSelect"; }
 		 */
+		
+		// user의 비밀번호를 암호화된 비밀번호로 저장
+		// String encPassword = passwordEncoder.encode(user.getUserPw());
+		// user.setUserPw(encPassword);
+		
 		MemberService.register(user);
 		return "redirect:/index";
 	}
