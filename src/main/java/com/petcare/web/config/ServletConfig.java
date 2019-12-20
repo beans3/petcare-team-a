@@ -103,16 +103,5 @@ public class ServletConfig implements WebMvcConfigurer {
     public Validator getValidator() {
         return validator();
     }
-    
-    /**
-     * 로그인 암호화
-     */
-    
-    // 암호화를 위해 BCryptPasswordEncoder bean 생성
-    // HospitalController에 @Autowire하여 생성 후 @PostMapping("/Join")register에서 회원가입 시 비밀번호 암호화 하여 저장
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        return bCryptPasswordEncoder;
-    }
+
 }

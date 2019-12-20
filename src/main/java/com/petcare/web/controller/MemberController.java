@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -33,11 +34,7 @@ public class MemberController {
 
 	@Autowired
 	private MemberService MemberService;
-
-    // ServletConfig에서 생성한 bean
- 	// @Autowired
- 	// private BCryptPasswordEncoder passwordEncoder;
-
+	
 	/*
 	 * @Autowired private MemberValidator memberValidator;
 	 */
@@ -75,10 +72,10 @@ public class MemberController {
 		 */
 		
 		// user의 비밀번호를 암호화된 비밀번호로 저장
-		// String encPassword = passwordEncoder.encode(user.getUserPw());
-		// user.setUserPw(encPassword);
-		
+		String hashedPw = BCrypt.hashpw(user.getUserPw(), BCrypt.gensalt());
+		user.setUserPw(hashedPw);
 		MemberService.register(user);
+		
 		return "redirect:/index";
 	}
 	

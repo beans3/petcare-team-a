@@ -91,7 +91,7 @@
 		SELECT *
 		FROM HOSPITAL
 		WHERE hospital_id = #{hospitalId}
-		AND hospital_pw = #{hospitalPw}
+		<!-- AND hospital_pw = #{hospitalPw} -->
 	</select>
 		
 	<select id="getCharacter" resultMap="selectCodeList">

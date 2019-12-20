@@ -87,7 +87,6 @@ public class HospitalServiceImpl implements HospitalService {
 	@Override
 	public Hospital loginPro2(Hospital hospital) {
 		// TODO Auto-generated method stub
-		System.out.println(hospital);
 		return hospitalMapper.loginPro2(hospital);
 	}
 	
