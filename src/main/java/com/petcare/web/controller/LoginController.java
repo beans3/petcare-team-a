@@ -4,6 +4,9 @@ package com.petcare.web.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.petcare.web.domain.Hospital;
 import com.petcare.web.domain.UserVO;
+import com.petcare.web.interceptor.HospitalLoginInterceptor;
 import com.petcare.web.service.HospitalService;
 import com.petcare.web.service.MemberService;
 
@@ -22,6 +26,8 @@ import com.petcare.web.service.MemberService;
 
 @Controller
 public class LoginController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(HospitalLoginInterceptor.class);
 	
 	@Autowired
 	private MemberService MemberService;
@@ -39,7 +45,8 @@ public class LoginController {
 		// loginForm에서 model 객체에 추가
 		model.addAttribute("user", new UserVO());
 		model.addAttribute("hospital", new Hospital());
-		model.addAttribute("hospitaluser", new Hospital());
+		
+		
 		
 		return "login/loginForm";
 	}
@@ -48,31 +55,31 @@ public class LoginController {
 	@PostMapping("/loginPro")
 	public void loginProcess(@ModelAttribute("user") UserVO user, Model model) {
 		
-		// MemberService.loginPro 실행하여 saved에 저장
-		// SELECT * FROM USER WHERE user_id = #{userId} AND user_pw = #{userPw}
 		UserVO saved = MemberService.loginPro(user);
 		
-		// model 객체에 "user"라는 이름으로 저장
+		//db에 저장된 비밀번호와 encode한 비밀번호 비교
+		if(saved == null || !BCrypt.checkpw(user.getUserPw(), saved.getUserPw())) {
+			model.addAttribute("user", null);
+			return;
+		}
+
 		model.addAttribute("user", saved);
 	
 	}
 	
 	// 병원회원 로그인
 	@PostMapping("/loginPro2")
-	public void loginProcess2(@ModelAttribute("hospital") Hospital hospital, Model model) {
+	public void loginProcess2(Hospital hospitalVO, Model model, HttpSession session, HttpServletRequest response) {
 		
-// 		  db에 저장된 비밀번호와 encode한 비밀번호 비교
-//		  String rawPassword = hospital.getHospitalPw();
-//		  String encodedPassword = passwordEncoder.encode(rawPassword);
-//
-//		  if(passwordEncoder.matches(rawPassword, encodedPassword);) {
-//			  System.out.println("비밀번호 일치");
-//		  } else {
-//			  System.out.println("비밀먼호 불일치");
-//		  }
-		  
-		  Hospital hos = hospitalService.loginPro2(hospital);
-		  model.addAttribute("hospital", hos);
+		Hospital hos = hospitalService.loginPro2(hospitalVO);
+		
+		//db에 저장된 비밀번호와 encode한 비밀번호 비교
+		if(hos == null || !BCrypt.checkpw(hospitalVO.getHospitalPw(), hos.getHospitalPw())) {
+			model.addAttribute("hospital", null);
+			return;
+		}
+
+		model.addAttribute("hospital", hos);
 
 	}
 	

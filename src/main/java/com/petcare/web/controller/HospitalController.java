@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -159,9 +160,8 @@ public class HospitalController {
 		 */
 		
 		// hospital의 비밀번호를 암호화된 비밀번호로 저장
-		// String encPassword = passwordEncoder.encode(hospital.getHospitalPw());
-		// hospital.setHospitalPw(encPassword);
-		
+		String hashedPw = BCrypt.hashpw(hospital.getHospitalPw(), BCrypt.gensalt());
+		hospital.setHospitalPw(hashedPw);
 		hospitalService.register(hospital);
 		
 		// form에 있는 checkbox에서 코드들의 값을 받아온다.

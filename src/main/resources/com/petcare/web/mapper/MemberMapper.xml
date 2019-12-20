@@ -38,7 +38,7 @@
 		SELECT *
 		FROM USER
 		WHERE user_id = #{userId}
-		AND user_pw = #{userPw}
+		<!-- AND user_pw = #{userPw} -->
 	</select>
 	
 	<select id="getList" resultType="UserVO">
