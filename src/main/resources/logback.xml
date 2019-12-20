@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+<!-- <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
 	<encoder>
 		<charset>UTF-8</charset>
 		로그 메시지 패턴
@@ -9,14 +9,14 @@
                  %d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n
         </Pattern>
 	</encoder>
-</appender>
+</appender> -->
 
 	
 	<!-- Root Logger -->
-	<root lebel="debug">
-		<!-- <appender-ref ref="STDOUT" /> -->
+<!-- 	<root lebel="debug">
+		<appender-ref ref="STDOUT" />
 		<appender-ref ref="CONSOLE"/>
-	</root>
+	</root> -->
 	
 	<!-- Application Loggers -->
 	<logger name="com.petcare.web">
@@ -24,7 +24,7 @@
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
-	<logger name="org.springframework.core">
+	<!-- <logger name="org.springframework.core">
 		<level value="info" />
 	</logger>
 	
@@ -37,7 +37,7 @@
 	</logger>
 	<logger name="org.springframework.web">
 		<level value="info" />
-	</logger>
+	</logger> -->
 
 
 </configuration>
