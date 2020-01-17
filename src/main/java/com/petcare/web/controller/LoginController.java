@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,20 +42,18 @@ public class LoginController {
 	
 	// 로그인 페이지
 	@GetMapping("/login")
-	public String login(Model model, HttpSession session, HttpServletRequest request) {
+	public String login(@ModelAttribute("hospital") Hospital hospital, Model model, HttpSession session, HttpServletRequest request) {
 		
 		// loginForm에서 model 객체에 추가
 		model.addAttribute("user", new UserVO());
-		model.addAttribute("hospital", new Hospital());
-		
-		
+		// model.addAttribute("hospital", new Hospital());
 		
 		return "login/loginForm";
 	}
 	
 	// 일반회원 로그인
 	@PostMapping("/loginPro")
-	public void loginProcess(@ModelAttribute("user") UserVO user, Model model) {
+	public void loginProcess(@ModelAttribute("user") UserVO user, Model model, BindingResult bindingResul) {
 		
 		UserVO saved = MemberService.loginPro(user);
 		

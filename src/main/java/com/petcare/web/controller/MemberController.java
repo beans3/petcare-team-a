@@ -104,7 +104,7 @@ public class MemberController {
 	 * 회원수정(일반유저)기능 처리
 	 * */	
 	@PostMapping("/modify")
-	public String update(@ModelAttribute("user") UserVO user)
+	public String update(@ModelAttribute("user") UserVO user, Model model, BindingResult bindingResul)
 	{
 		/*
 		 * String msg = null;
@@ -116,9 +116,14 @@ public class MemberController {
 		 * 
 		 * return "user/modify"; }
 		 */
+		
+		String hashedPw = BCrypt.hashpw(user.getUserPw(), BCrypt.gensalt());
+		user.setUserPw(hashedPw);
+		
 		MemberService.update(user);
 		return "redirect:/index";
 	}
+	
 	
 	/**
 	 * 회원(일반유저) 아이디 중복 체크
