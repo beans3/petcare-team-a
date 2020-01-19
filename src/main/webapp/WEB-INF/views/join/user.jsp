@@ -27,6 +27,11 @@
 		<div class="col-sm-8 text-left" style="height:100%;">
 			<form id="userJoin" method="post" action="/member/join">
 				<div class="form-group">
+					<label></label>
+					<input type="radio" name="userAuthority" name="USER" checked="checked">일반 회원
+					<input type="radio" name="userAuthority" value="ADMIN">관리자
+				</div>
+				<div class="form-group">
 					<label>아이디</label>
 					<input type="text" class="form-control" id="userId" name="userId" placeholder="아이디를 입력하세요." />
 				</div>
